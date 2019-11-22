@@ -9,19 +9,52 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import org.jasypt.util.text.BasicTextEncryptor;
 
 public class ConnectionDB {
 
 	static String prop;
+	static final String DB_SERVER = "ec2-18-217-120-134.us-east-2.compute.amazonaws.com"; 
+	static final int DB_PORT = 3306;
+	static final String DB_USER = "admin_db";
+	static final String DB_PASS = "AbMEXzM75u3qGfnNBthzfcyxmBhmYL4U";
 
-	public boolean conectionInsert(Connection connection, PreparedStatement st, String user_name, String user_surname,
+	private String decrypt(String encodedText) {
+		String decodedText;
+		BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
+		textEncryptor.setPassword("digital_marine");
+		
+		//String myEncryptedText = textEncryptor.encrypt(DB_PASS);
+		
+		decodedText = textEncryptor.decrypt(encodedText);
+		//System.out.println(decodedText);
+		return decodedText;
+	}
+	/**
+	   * Connect to the database
+	   *
+	   * @return the Connection object
+	   */
+	  private Connection connect() throws SQLException{
+	      // Mysql connection string
+	      String url = "jdbc:mysql://"+DB_SERVER+":"+ DB_PORT + "/user_collect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	      Connection conn= null;
+	      
+	      String pass = decrypt(DB_PASS);
+	      conn = DriverManager.getConnection(url, DB_USER, pass);
+	      //conn.setAutoCommit(false);
+	      return conn;
+	  }
+	  
+	public boolean conectionInsert(Connection connection2, PreparedStatement st2, String user_name, String user_surname,
 			String user_email, String user_phone, String user_comments, File user_file) {
+		Connection connection = null;
+		PreparedStatement st = null;
+		int rs=0;
 
 		try {
 
-			connection = (Connection) DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/user_collect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-					"root", "e301Pepe*");
+			connection = this.connect();
 			st = (PreparedStatement) connection.prepareStatement(
 					"INSERT INTO userUnit (user_name,user_surname,user_email,user_phone, user_comments, user_file) VALUES (?,?,?,?,?,?)");
 
@@ -42,7 +75,7 @@ public class ConnectionDB {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			int rs = st.executeUpdate();
+			rs = st.executeUpdate();
 
 		} catch (SQLException e1) {
 
@@ -60,6 +93,9 @@ public class ConnectionDB {
 
 			}
 		}
+		if (rs == 1) {
+			return true;
+		}
 
 		return false;
 
@@ -70,9 +106,7 @@ public class ConnectionDB {
 	
 	
 	
-		 connection = (Connection) DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/user_collect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
-				"root", "e301Pepe*");
+		 connection = this.connect();
 		 st = (PreparedStatement) connection
 				.prepareStatement("SELECT * FROM userUnit");
 
