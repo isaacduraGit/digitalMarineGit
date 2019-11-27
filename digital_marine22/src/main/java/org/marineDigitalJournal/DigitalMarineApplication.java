@@ -52,7 +52,7 @@ import org.marineDigitalJournal.presentation.swing.BackgroundImagePredictions_hi
 import org.marineDigitalJournal.presentation.swing.BackgroundImageCHL_predictions_next_day;
 import org.marineDigitalJournal.presentation.swing.NextPage;
 import org.marineDigitalJournal.presentation.swing.Register;
-
+import org.marineDigitalJournal.presentation.swing.Login;
 
 public class DigitalMarineApplication extends JFrame implements ActionListener{
 
@@ -323,68 +323,8 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 
 			} 
     	else if (ev.getActionCommand().equals("Database")) {
-
-				try {
-
-					Connection connection = null;
-					PreparedStatement st = null;
-
-					ConnectionDB connectionDB = new ConnectionDB();
-
-					ResultSet rs = connectionDB.conectionUpdate(connection, st);
-
-					// Retrieve meta data from ResultSet
-					ResultSetMetaData metaData = rs.getMetaData();
-
-					// Get number of columns from meta data
-					int columnCount = metaData.getColumnCount();
-
-					DefaultTableModel tableModel = new DefaultTableModel();
-
-					// Get all column names from meta data and add columns to table model
-					for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
-						tableModel.addColumn(metaData.getColumnLabel(columnIndex));
-					}
-
-					PopulateTable populateTable = new PopulateTable();
-
-					// for(int s=0;s<rs.getFetchSize();s++) {
-
-					// Object[] rows = populateTable.getRowsFromResultSet(rs); // changed adnan
-					tableModel = populateTable.getRowsFromResultSet(rs, tableModel);
-					// }
-
-					// tableModel.addRow(rows);
-
-					JScrollPane jScrollPane = new javax.swing.JScrollPane();
-					JTable table = new JTable();
-
-					table.setModel(tableModel);
-
-					table.setRowHeight(48);
-
-					// Ensure that "user_file" column gets its custom image renderer
-					TableColumn userFileColumn = table.getColumnModel().getColumn(6);
-					userFileColumn.setCellRenderer(new ImageRenderer());
-
-					jScrollPane.setViewportView(table);
-
-					final JFrame frame = new JFrame();
-
-					frame.getContentPane().add(jScrollPane, BorderLayout.CENTER);
-
-					frame.pack();
-
-					frame.setSize(900, 900);
-
-					EventQueue.invokeLater(() -> {
-						frame.setVisible(true);
-					});
-
-				} catch (Exception e) {
-					System.out.println(e.getMessage());
-					System.out.println(e.getStackTrace());
-				}
+    		
+    			Login l = new Login();
 
 			}
     	else if (ev.getActionCommand().equals("Predictions high CHL locations high biomass blooms")) {
