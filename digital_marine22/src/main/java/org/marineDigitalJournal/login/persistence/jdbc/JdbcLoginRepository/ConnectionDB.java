@@ -91,7 +91,7 @@ public class ConnectionDB {
 	  }
 	  
 	public boolean conectionInsert(String user_name, String user_surname,
-			String user_email, String user_phone, String user_comments, String user_phone2, String user_comments2, File user_file) {
+			String user_email, String user_phone, String user_comments, File user_file) {
 		Connection connection = null;
 		PreparedStatement st = null;
 		int rs=0;
@@ -114,7 +114,12 @@ public class ConnectionDB {
 
 			
 			try {
-				st.setBlob(6, new FileInputStream(user_file));
+				if(user_file != null) {
+					st.setBlob(6, new FileInputStream(user_file));}
+				else {
+					//st.setBlob(6, null);
+					st.setNull(6, java.sql.Types.BLOB);
+				}
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
