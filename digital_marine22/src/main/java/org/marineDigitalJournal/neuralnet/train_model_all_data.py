@@ -10,7 +10,7 @@ import sys
 
 ###### parameters ##################################################
 epochs = 1						# specify the number of epochs you want to use for training
-historic_path = 'historicData/' # specify path to colour data here
+historic_path = 'data/colour/historicData/' # specify path to colour data here
 console_path = ''				# specify path for console output
 
 model_path = ''					# specify path to model here
