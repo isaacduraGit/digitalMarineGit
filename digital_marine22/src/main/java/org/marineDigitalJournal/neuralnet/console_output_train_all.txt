@@ -1,0 +1,88 @@
+Epoch 1/1
+
+1/1 [==============================] - 7s 7s/step - loss: 272612.2812 - mean_absolute_error: 273.0190
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272611.1250 - mean_absolute_error: 273.0271
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272611.4375 - mean_absolute_error: 273.0444
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272611.4375 - mean_absolute_error: 273.0334
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272611.0625 - mean_absolute_error: 273.0291
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272611.1250 - mean_absolute_error: 273.0403
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272610.6875 - mean_absolute_error: 273.0181
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272611.0625 - mean_absolute_error: 273.0375
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272611.0312 - mean_absolute_error: 273.0251
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272611.0625 - mean_absolute_error: 273.0327
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272610.2500 - mean_absolute_error: 273.0182
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272610.4062 - mean_absolute_error: 273.0327
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272610.1875 - mean_absolute_error: 273.0210
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272610.1250 - mean_absolute_error: 273.0184
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272610.4062 - mean_absolute_error: 273.0495
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272610.0312 - mean_absolute_error: 273.0284
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272610.2188 - mean_absolute_error: 273.0316
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272610.0312 - mean_absolute_error: 273.0190
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272610.1875 - mean_absolute_error: 273.0409
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272608.1875 - mean_absolute_error: 273.0173
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272608.2812 - mean_absolute_error: 273.0247
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272608.1250 - mean_absolute_error: 273.0202
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272609.0938 - mean_absolute_error: 273.0829
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272608.2812 - mean_absolute_error: 273.0302
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272608.0000 - mean_absolute_error: 273.0229
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272608.0312 - mean_absolute_error: 273.0235
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272608.2812 - mean_absolute_error: 273.0455
+Epoch 1/1
+
+1/1 [==============================] - 2s 2s/step - loss: 272607.9375 - mean_absolute_error: 273.0436
+Epoch 1/1
+
+1/1 [==============================] - 1s 1s/step - loss: 272607.4375 - mean_absolute_error: 273.0287
+Saved model to disk
