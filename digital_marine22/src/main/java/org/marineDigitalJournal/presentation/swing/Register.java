@@ -13,8 +13,8 @@ public class Register
     // Components of the Form 
     private Container c; 
     private JLabel title; 
-    private JLabel name, sname; 
-    private JTextField tname, tsname, temail; 
+    private JLabel name, sname, lag, lat; 
+    private JTextField tname, tsname, temail, tlag, tlat; 
     private JLabel mno; 
     private JTextField tmno; 
     private JLabel email, file;
@@ -28,15 +28,16 @@ public class Register
     // with default values. 
     public Register() 
     { 
-        setTitle("Registration Form"); 
-        setBounds(300, 90, 550, 600); 
+    	int x=100, y =100;
+        setTitle("Data Collection Form"); 
+        setBounds(300, 50, 550, 680); 
         //setDefaultCloseOperation(EXIT_ON_CLOSE); 
         setResizable(false); 
   
         c = getContentPane(); 
         c.setLayout(null); 
   
-        title = new JLabel("Registration Form"); 
+        title = new JLabel("Collect Data"); 
         title.setFont(new Font("Arial", Font.PLAIN, 30)); 
         title.setSize(300, 40); 
         title.setLocation(100, 30); 
@@ -45,62 +46,93 @@ public class Register
         name = new JLabel("Name"); 
         name.setFont(new Font("Arial", Font.PLAIN, 20)); 
         name.setSize(100, 20); 
-        name.setLocation(100, 100); 
+        name.setLocation(x, y); 
         c.add(name); 
   
         tname = new JTextField(); 
         tname.setFont(new Font("Arial", Font.PLAIN, 15)); 
         tname.setSize(190, 20); 
-        tname.setLocation(200, 100); 
+        tname.setLocation(x + 100, y); 
         c.add(tname); 
+        
+        y += 50;
 
         sname = new JLabel("Surname"); 
         sname.setFont(new Font("Arial", Font.PLAIN, 20)); 
         sname.setSize(100, 20); 
-        sname.setLocation(100, 150); 
+        sname.setLocation(x, y); 
         c.add(sname); 
   
         tsname = new JTextField(); 
         tsname.setFont(new Font("Arial", Font.PLAIN, 15)); 
         tsname.setSize(190, 20); 
-        tsname.setLocation(200, 150); 
+        tsname.setLocation(x + 100, y); 
         c.add(tsname);
     
+        y += 50;
         mno = new JLabel("Phone"); 
         mno.setFont(new Font("Arial", Font.PLAIN, 20)); 
         mno.setSize(100, 20); 
-        mno.setLocation(100, 200); 
+        mno.setLocation(x, y); 
         c.add(mno); 
   
         tmno = new JTextField(); 
         tmno.setFont(new Font("Arial", Font.PLAIN, 15)); 
         tmno.setSize(190, 20); 
-        tmno.setLocation(200, 200); 
+        tmno.setLocation(x + 100, y); 
         c.add(tmno); 
   
+        y += 50;
         email = new JLabel("Email *"); 
         email.setFont(new Font("Arial", Font.PLAIN, 20)); 
         email.setSize(100, 20); 
-        email.setLocation(100, 250); 
+        email.setLocation(x, y); 
         c.add(email); 
   
         temail = new JTextField(); 
         temail.setFont(new Font("Arial", Font.PLAIN, 15)); 
         temail.setSize(190, 20); 
-        temail.setLocation(200, 250); 
+        temail.setLocation(x + 100, y); 
         c.add(temail);
+
+        y += 50;
+        lag = new JLabel("Longitude"); 
+        lag.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        lag.setSize(100, 20); 
+        lag.setLocation(x, y); 
+        c.add(lag); 
   
+        tlag = new JTextField(); 
+        tlag.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tlag.setSize(190, 20); 
+        tlag.setLocation(x + 100, y); 
+        c.add(tlag);
+
+        y += 50;
+        lat = new JLabel("Latitude"); 
+        lat.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        lat.setSize(100, 20); 
+        lat.setLocation(x, y); 
+        c.add(lat); 
+  
+        tlat = new JTextField(); 
+        tlat.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tlat.setSize(190, 20); 
+        tlat.setLocation(x + 100, y); 
+        c.add(tlat);
+        
+        y += 50;
         file = new JLabel("Photo"); 
         file.setFont(new Font("Arial", Font.PLAIN, 20)); 
         file.setSize(100, 20); 
-        file.setLocation(100, 300); 
+        file.setLocation(x, y); 
         c.add(file);
         
         fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         attach = new JButton("Attach"); 
         attach.setFont(new Font("Arial", Font.PLAIN, 15)); 
         attach.setSize(100, 23); 
-        attach.setLocation(200, 300); 
+        attach.setLocation(x + 100, y); 
         attach.addActionListener(new ActionListener() {
 
 			@Override
@@ -125,16 +157,18 @@ public class Register
 		});
         c.add(attach);
         
+        y += 50;
         term = new JCheckBox("Personal Data Processing Consent"); 
         term.setFont(new Font("Arial", Font.PLAIN, 15)); 
         term.setSize(350, 20); 
-        term.setLocation(100, 350); 
+        term.setLocation(x, y); 
         c.add(term); 
         
+        y += 50;
         con = new JButton("Read Data Processing Terms"); 
         con.setFont(new Font("Arial", Font.PLAIN, 15)); 
         con.setSize(300, 23); 
-        con.setLocation(100, 400); 
+        con.setLocation(x, y); 
         con.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ev) {
@@ -197,24 +231,27 @@ public class Register
 		});
         c.add(con);
   
+        y += 50;
         sub = new JButton("Submit"); 
         sub.setFont(new Font("Arial", Font.PLAIN, 15)); 
         sub.setSize(100, 23); 
-        sub.setLocation(150, 450); 
+        sub.setLocation(x + 50, y); 
         sub.addActionListener(this); 
         c.add(sub); 
   
         reset = new JButton("Reset"); 
         reset.setFont(new Font("Arial", Font.PLAIN, 15)); 
         reset.setSize(100, 23); 
-        reset.setLocation(270, 450); 
+        reset.setLocation(270, y); 
         reset.addActionListener(this); 
         c.add(reset);
   
+        y += 50;
         res = new JLabel(""); 
         res.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        res.setForeground(Color.RED);
         res.setSize(500, 25); 
-        res.setLocation(50, 500); 
+        res.setLocation(x - 50, y); 
         c.add(res);
   
         setVisible(true); 
@@ -232,20 +269,31 @@ public class Register
             	String user_email = temail.getText();
             	String user_phone = tmno.getText();
             	String user_comments = "";
+            	String user_latitude = tlat.getText();
+            	String user_langitude = tlag.getText();
             	
             	File user_file = fileChooser.getSelectedFile();
+            	if (user_file!= null)
+            	if(!user_file.exists()) {
+            		System.out.print("File doesn't exist");
+            		user_file = null;
+            	}
             	
-            	if (user_name.isEmpty() || user_surname.isEmpty() ||
+            	/*if (user_name.isEmpty() || user_surname.isEmpty() ||
             			user_email.isEmpty() || user_phone.isEmpty() ||
-            			!user_file.isFile()) {
-            		res.setText("All fields are mandatory!");
+            			!user_file.isFile())*/ 
+            	if (user_email.isEmpty() )
+            	{
+            		//res.setText("All fields are mandatory!");
+            		res.setText("Email is mandatory!");
             		return;
             	}
             	
             	ConnectionDB connectionDB = new ConnectionDB();
             	
-            	boolean result = connectionDB.conectionInsert(null, null, user_name, user_surname, user_email,
+            	boolean result = connectionDB.conectionInsert(user_name, user_surname, user_email,
 					user_phone, user_comments, user_file);
+            	
             	if(result) {
             		JOptionPane.showMessageDialog(c, "Registration Successful.",
 						"Notification", JOptionPane.PLAIN_MESSAGE);
@@ -275,5 +323,7 @@ public class Register
         res.setText(def);
         term.setSelected(false);
         tmno.setText(def);
+        tlag.setText(def);
+        tlat.setText(def);
     }
 } 
