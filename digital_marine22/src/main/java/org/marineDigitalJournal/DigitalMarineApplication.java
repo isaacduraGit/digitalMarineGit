@@ -208,7 +208,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 
 		predictions_high_CHL_locations = new JMenuItem("Predictions high CHL locations high biomass blooms");
 		chl_predictions_next_day = new JMenuItem("CHL predictions next day high biomass blooms");
-		collect = new JMenuItem("Registration");
+		collect = new JMenuItem("Collect");
 		database = new JMenuItem("Database");
 
 		about = new JMenuItem("About");
