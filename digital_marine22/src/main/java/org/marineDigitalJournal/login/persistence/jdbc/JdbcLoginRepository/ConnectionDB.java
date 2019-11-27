@@ -19,6 +19,50 @@ public class ConnectionDB {
 	static final String DB_USER = "admin_db";
 	static final String DB_PASS = "AbMEXzM75u3qGfnNBthzfcyxmBhmYL4U";
 
+	public boolean authenticate(String user, String pwd) {
+		try {
+			Connection connection = this.connect();
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT user, pwd FROM users");
+			while (rs.next()) {
+				String u = rs.getString("user");
+				String p = rs.getString("pwd");
+				//System.out.println(u + " " + p);
+				if (user.equals(u)) {
+					if(pwd.equals(p)) {
+						return true;
+					}
+				}
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			return false;
+		}
+		return false;
+	}
+	
+	public boolean updateRecord(String column, Object data, Object id) {
+		String columnName = column;
+        String dataVal = data.toString();
+        String rowId = id.toString();
+		int rs=0;
+        try {
+        	Connection connection = this.connect();
+        	PreparedStatement st = (PreparedStatement) connection.prepareStatement(
+					"update userUnit set "+columnName+" = "+dataVal+" where user_id = "+rowId);
+			rs = st.executeUpdate();
+			
+        }catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		if (rs == 1) {
+			return true;
+		}
+		return false;
+	}
+	
 	private String decrypt(String encodedText) {
 		String decodedText;
 		BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
@@ -46,8 +90,8 @@ public class ConnectionDB {
 	      return conn;
 	  }
 	  
-	public boolean conectionInsert(Connection connection2, PreparedStatement st2, String user_name, String user_surname,
-			String user_email, String user_phone, String user_comments, File user_file) {
+	public boolean conectionInsert(String user_name, String user_surname,
+			String user_email, String user_phone, String user_comments, String user_phone2, String user_comments2, File user_file) {
 		Connection connection = null;
 		PreparedStatement st = null;
 		int rs=0;
