@@ -8,8 +8,8 @@ from netCDF4 import Dataset
 import glob, sys
 
 ###### parameters ##################################################
-current_path = 'currentData/' 	# specify path to current data here
-historic_path = 'historicData/'	# specity path to historic data here
+current_path = 'data/colour/currentData/' 	# specify path to current data here
+historic_path = 'data/colour/historicData/'	# specity path to historic data here
 model_path = ''					# specify path to model here
 console_path = ''				# specify path for console output
 
