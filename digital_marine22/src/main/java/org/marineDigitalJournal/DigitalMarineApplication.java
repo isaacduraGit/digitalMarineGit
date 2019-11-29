@@ -29,7 +29,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSlider;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -68,6 +70,9 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 	static private JMenuItem predictions_high_CHL_locations, chl_predictions_next_day;
 	static private JMenuItem  collect, database, about, myAccount;
 	static private JMenuItem funding, exit, trainModel, download;
+	
+	 // slider 
+    static JSlider b; 
 
 	public DigitalMarineApplication() {
 
@@ -80,10 +85,25 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		
 		addMenu();
 		addButtons();
+		
+		 // create a panel 
+      //  JPanel p = new JPanel(); 
+  
+        // create a slider 
+        //b = new JSlider(); 
+        
+        // add slider to panel 
+        //p.add(b); 
+        
+        //f.add(p); 
 
 		BackgroundImage backgroundImage = new BackgroundImage();
+		
+		backgroundImage.setBounds(500, 50, 600, 500);
 
 		f.add(backgroundImage, BorderLayout.CENTER);
+		
+		//f.setBackground(Color.red);
 
 	}
 
@@ -455,6 +475,8 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		f.setLayout(null);
 
 		f.setVisible(true);
+		
+		f.getContentPane().setBackground(Color.LIGHT_GRAY);
 
 		f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -467,6 +489,8 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 			background.setLayout(new BorderLayout());
 
 			gui.setContentPane(background);
+			
+			gui.getContentPane().setBackground(Color.LIGHT_GRAY);
 
 			gui.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("marineDigitalJournal/mainImage.jpg")))));
 
