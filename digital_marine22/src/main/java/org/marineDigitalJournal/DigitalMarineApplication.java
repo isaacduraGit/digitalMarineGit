@@ -2,65 +2,46 @@ package org.marineDigitalJournal;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 
 import javax.imageio.ImageIO;
 import javax.mail.MessagingException;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSlider;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.border.Border;
 import javax.swing.filechooser.FileSystemView;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 
-import org.marineDigitalJournal.login.persistence.jdbc.JdbcLoginRepository.ConnectionDB;
-
-import org.marineDigitalJournal.neuralnet.DisplayData;
 import org.marineDigitalJournal.neuralnet.DisplayData_Thread;
 import org.marineDigitalJournal.neuralnet.Display_Product_Thread;
 import org.marineDigitalJournal.neuralnet.Downloadind_Sat_NRT_Data;
-import org.marineDigitalJournal.neuralnet.TrainModel;
 import org.marineDigitalJournal.neuralnet.Trainning_Model;
 import org.marineDigitalJournal.presentation.swing.BackgroundImage;
-import org.marineDigitalJournal.presentation.swing.BackgroundImage_Product;
-import org.marineDigitalJournal.presentation.swing.BackgroundImagePredictions_high_CHL_locations;
 import org.marineDigitalJournal.presentation.swing.BackgroundImageCHL_predictions_next_day;
+import org.marineDigitalJournal.presentation.swing.BackgroundImagePredictions_high_CHL_locations;
+import org.marineDigitalJournal.presentation.swing.BackgroundImage_Product;
+import org.marineDigitalJournal.presentation.swing.Login;
 import org.marineDigitalJournal.presentation.swing.NextPage;
 import org.marineDigitalJournal.presentation.swing.Register;
-import org.marineDigitalJournal.presentation.swing.Login;
 
 public class DigitalMarineApplication extends JFrame implements ActionListener{
 
 	public static String limit_CHL = "";
 
-	static JFrame f = new JFrame("Blue Maritime Digital Journal App ");
+	static JFrame frame = new JFrame("Blue Maritime Digital Journal App ");
 	
 	static private JButton predictions_high_CHL_locations_button, chl_predictions_next_day_button;
 	static private JButton database_button, register_button;
@@ -84,36 +65,23 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		}
 		
 		addMenu();
-		addButtons();
 		
-		 // create a panel 
-      //  JPanel p = new JPanel(); 
-  
-        // create a slider 
-        //b = new JSlider(); 
-        
-        // add slider to panel 
-        //p.add(b); 
-        
-        //f.add(p); 
-
-		BackgroundImage backgroundImage = new BackgroundImage();
+		BackgroundImage background = new BackgroundImage();
 		
-		backgroundImage.setBounds(500, 50, 600, 500);
+		frame.setContentPane(background);
 
-		f.add(backgroundImage, BorderLayout.CENTER);
+		addButtons(background);
 		
-		//f.setBackground(Color.red);
-
+		pack();
+		
 	}
 
+	
 	private void initComponents() throws IOException {
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
 		setTitle("File");
-
-		pack();
 
 		Display_Product_Thread displayProduct_Thread = new Display_Product_Thread();
 		displayProduct_Thread.launch();
@@ -134,10 +102,17 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		Trainning_Model trainning_Model = new Trainning_Model();
 
 		trainning_Model.launch();
+		
+		
 	}
 	
-	private void addButtons() {
+	private void addButtons(Container parent) {
+		
+
 		/* Add buttons */
+		
+		
+		
 		int x = 50, y = 110, thick = 25;
 		Color font_color= Color.BLUE;
 		predictions_high_CHL_locations_button = new JButton("Predictions high CHL locations high biomass blooms"); 
@@ -146,7 +121,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		predictions_high_CHL_locations_button.setSize(400, thick); 
 		predictions_high_CHL_locations_button.setLocation(x , y);
 		predictions_high_CHL_locations_button.addActionListener(this);
-		f.add(predictions_high_CHL_locations_button);
+		parent.add(predictions_high_CHL_locations_button);
 		
 		y += 50;
 		chl_predictions_next_day_button = new JButton("CHL predictions next day high biomass blooms"); 
@@ -155,7 +130,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		chl_predictions_next_day_button.setSize(400, thick); 
 		chl_predictions_next_day_button.setLocation(x , y); 
 		chl_predictions_next_day_button.addActionListener(this);
-		f.add(chl_predictions_next_day_button);
+		parent.add(chl_predictions_next_day_button);
 		
 		
 		y += 50;
@@ -165,7 +140,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		maps_button.setSize(400, thick); 
 		maps_button.setLocation(x , y);
 		maps_button.addActionListener(this);
-		f.add(maps_button);
+		parent.add(maps_button);
 		
 		y += 50;
 		register_button = new JButton("Collect"); 
@@ -174,7 +149,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		register_button.setSize(400, thick); 
 		register_button.setLocation(x , y); 
 		register_button.addActionListener(this);
-		f.add(register_button);
+		parent.add(register_button);
 		
 		y += 50;
 		database_button = new JButton("Database"); 
@@ -183,7 +158,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		database_button.setSize(400, thick); 
 		database_button.setLocation(x , y); 
 		database_button.addActionListener(this);
-		f.add(database_button);
+		parent.add(database_button);
 		
 		y += 50;
 		funding_button = new JButton("Funding"); 
@@ -192,7 +167,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		funding_button.setSize(400, thick); 
 		funding_button.setLocation(x , y); 
 		funding_button.addActionListener(this);
-		f.add(funding_button);
+		parent.add(funding_button);
 		
 		y += 50;
 		about_button = new JButton("About"); 
@@ -201,7 +176,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		about_button.setSize(400, thick); 
 		about_button.setLocation(x , y); 
 		about_button.addActionListener(this);
-		f.add(about_button);
+		parent.add(about_button);
 		
 		y += 50;
 		exit_button = new JButton("Exit"); 
@@ -210,21 +185,21 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 		exit_button.setSize(400, thick); 
 		exit_button.setLocation(x , y); 
 		exit_button.addActionListener(this);
-		f.add(exit_button);
+		parent.add(exit_button);
 	}
 	
 	private void addMenu() {
 		JMenu menu;
 		
-		f.getContentPane().setBackground(Color.WHITE);
+		
 
 		JMenuBar mb = new JMenuBar();
 
 		menu = new JMenu("Home");
 
-		JLabel jLabel = new JLabel("Blue Maritime Digital Journal App");
-
-		f.add(jLabel);
+//		JLabel jLabel = new JLabel("Blue Maritime Digital Journal App");
+//
+//		frame.add(jLabel);
 
 		predictions_high_CHL_locations = new JMenuItem("Predictions high CHL locations high biomass blooms");
 		chl_predictions_next_day = new JMenuItem("CHL predictions next day high biomass blooms");
@@ -256,7 +231,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 
 		mb.add(menu);
 
-		f.setJMenuBar(mb);
+		frame.setJMenuBar(mb);
 		
 		
 	}
@@ -470,15 +445,15 @@ public class DigitalMarineApplication extends JFrame implements ActionListener{
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-		f.setSize(screenSize.width, screenSize.height);
+		frame.setSize(screenSize.width, screenSize.height);
 
-		f.setLayout(null);
+		frame.setLayout(null);
 
-		f.setVisible(true);
+		frame.setVisible(true);
 		
-		f.getContentPane().setBackground(Color.LIGHT_GRAY);
+		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 
-		f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		DigitalMarineApplication gui = new DigitalMarineApplication();
 
