@@ -65,7 +65,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 	public DigitalMarineApplication() {
 
-		setTitle("Blue Maritime Digital Journal App ");
+		frame = new JFrame("Blue Maritime Digital Journal App ");
 		
 		try {
 			initComponents();
@@ -76,19 +76,20 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-		//frame.setLayout(null);
+		frame.setLayout(null);
 		
 		frame.setSize(screenSize.width, screenSize.height);
 
 		addMenu();
 
 		BackgroundImage background = new BackgroundImage();
-
-		frame.setContentPane(background);
+		background.setSize(screenSize.width, screenSize.height);
 
 		background.add(addButtons(), BorderLayout.CENTER);
+		
+		frame.setContentPane(background);
 
-		pack();
+		
 
 	}
 

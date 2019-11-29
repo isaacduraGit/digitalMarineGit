@@ -13,6 +13,7 @@ public class BackgroundImage extends javax.swing.JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private BufferedImage image;
+	private BufferedImage eulogo;
 	
 
 	// Creates a new form BackgroundImage
@@ -24,14 +25,11 @@ public class BackgroundImage extends javax.swing.JPanel {
 			
 			JLabel logo = new JLabel(new ImageIcon(
 					ImageIO.read(BackgroundImage.class.getClassLoader().getResource("EOValue.jpg"))));
-			logo.setSize(360, 70);
+			logo.setSize(518, 100);
 			add(logo, BorderLayout.NORTH);
 
-			
-			JLabel blogo = new JLabel(new ImageIcon(
-					ImageIO.read(BackgroundImage.class.getClassLoader().getResource("ec-logo.jpg"))));
-			blogo.setSize(100, 80);
-			add(blogo, BorderLayout.SOUTH);
+			eulogo = ImageIO.read(BackgroundImage.class.getClassLoader().getResource("ec-logo.jpg"));
+
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -45,6 +43,7 @@ public class BackgroundImage extends javax.swing.JPanel {
 		super.paintComponent(g);
 
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+		g.drawImage(eulogo, getWidth()-200, getHeight()-150, 200, 150, this);
 
 	}
 
