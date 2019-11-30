@@ -1,37 +1,51 @@
 package org.marineDigitalJournal.neuralnet;
 
-import java.awt.Component;
 import java.io.BufferedReader;
-
+import java.io.File;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-import org.marineDigitalJournal.DigitalMarineApplication;
-import org.marineDigitalJournal.SendEmail;
-import org.marineDigitalJournal.utils.RetrieveEmail;
 import org.python.util.PythonInterpreter;
 
 public class DisplayProduct {
 
-	
-	/*public static void main(String[] args) {
-		
-		DisplayProduct display=new DisplayProduct();
+	public static void main(String[] args) {
+
+		System.out.println("Current dir: " + getWorkingDir());
+
+		DisplayProduct display = new DisplayProduct();
 		display.display();
-		
+
 	}
-	*/
-	
+
+	private static String getWorkingDir() {
+		try {
+			return new File(DisplayProduct.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
+
 	public void display() {
-		
-		//RetrieveEmail retrieveEmail=new RetrieveEmail();
-		
+
+		// RetrieveEmail retrieveEmail=new RetrieveEmail();
 
 		PythonInterpreter interpreter = new PythonInterpreter();
+
+		String scriptPath = getWorkingDir() + "/org/marineDigitalJournal/neuralnet/plot_product.py";
+
+		if (!Files.exists(Paths.get(scriptPath))) { 
+			System.out.println("Script file doens't exists" + scriptPath);
+		}
+		
 		try {
 
-			ProcessBuilder pb = new ProcessBuilder("python",
-					"/application/pi/eclipse-workspace/blueMaritimeDigitalJournal/src/main/java/org/marineDigitalJournal/neuralnet/plot_product.py");
+			System.out.println("executing python script: " + scriptPath);
+			
+			ProcessBuilder pb = new ProcessBuilder("python", scriptPath);
 
 			Process p = pb.start();
 
@@ -39,7 +53,7 @@ public class DisplayProduct {
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line = br.readLine();
-			
+
 			while (line != null) {
 
 //				if (line.contains("forecastVAlue")) {
@@ -49,12 +63,11 @@ public class DisplayProduct {
 //				}
 
 				line = br.readLine();
+				System.out.println(line);
 			}
-			
-			//retrieveEmail.retrieveEmail();
-			
-			
-			
+
+			// retrieveEmail.retrieveEmail();
+
 //			SendEmail sendEmail = new SendEmail();
 //			
 //			ArrayList email=retrieveEmail.retrieveEmail();
