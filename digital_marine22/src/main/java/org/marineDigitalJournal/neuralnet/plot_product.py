@@ -49,8 +49,11 @@ def scale_bar(ax, length=None, location=(0.5, 0.05), linewidth=3):
             horizontalalignment='center', verticalalignment='bottom')
 
 
-dataDIR='data/colour/currentData/data.nc'             # specify path to input data
-output_path = '../presentation/swing/' # specify folder for output data
+import os
+curDir = os.path.dirname(os.path.realpath(__file__))
+
+dataDIR= curDir + '/data/colour/currentData/data.nc'             # specify path to input data
+output_path = curDir +'/../presentation/swing/' # specify folder for output data
 
 DS=Dataset(dataDIR)
 
