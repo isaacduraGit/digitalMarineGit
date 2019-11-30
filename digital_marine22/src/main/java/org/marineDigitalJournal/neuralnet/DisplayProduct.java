@@ -31,7 +31,7 @@ public class DisplayProduct {
 		try {
 
 			ProcessBuilder pb = new ProcessBuilder("python",
-					"/application/pi/eclipse-workspace/blueMaritimeDigitalJournal/src/main/java/org/marineDigitalJournal/neuralnet/plot_product.py");
+					"neuralnet/plot_product.py");
 
 			Process p = pb.start();
 
