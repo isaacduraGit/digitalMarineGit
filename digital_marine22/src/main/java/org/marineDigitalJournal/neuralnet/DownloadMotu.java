@@ -9,8 +9,18 @@ import java.io.InputStreamReader;
 import java.util.Properties;
 
 public class DownloadMotu {
+	
+	/*public static void main(String[] args) {
+		
+		DownloadMotu downloadMotu=new DownloadMotu();
+		downloadMotu.downloadSatNear_Real_TimeData();
+		
+		
+	}*/
 
 	public  String downloadSatNear_Real_TimeData() {
+		
+		
 		
 		String lineTerminal="";
 
@@ -19,11 +29,13 @@ public class DownloadMotu {
 			
 
 			ProcessBuilder pb = new ProcessBuilder("python",
-					"/application/pi/eclipse-workspace/blueMaritimeDigitalJournal/src/main/java/org/marineDigitalJournal/neuralnet/downloadMotu.py");
+					"neuralnet/downloadMotu.py");
 			Process p = pb.start();
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line = br.readLine();
+			
+			System.out.print("pepino");
 			
 			while (line != null) {
 
