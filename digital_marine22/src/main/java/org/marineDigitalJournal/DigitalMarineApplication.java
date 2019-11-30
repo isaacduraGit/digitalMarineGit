@@ -125,7 +125,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		/* Add buttons */
 
 		JPanel parent = new JPanel(new VerticalLayout());
-		parent.setBounds(frame.getWidth()/4, 200, frame.getWidth()/2, frame.getHeight()/2);
+		parent.setBounds(frame.getWidth()/4, 400, frame.getWidth()/2, frame.getHeight()/2);
 		//parent.setSize(new Dimension(frame.getWidth()/2, frame.getHeight()/2));
 		parent.setOpaque(false);
 
