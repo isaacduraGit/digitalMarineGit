@@ -6,6 +6,7 @@ from keras.models import model_from_json
 import numpy as np
 from netCDF4 import Dataset
 import glob, sys
+print("test")
 
 ###### parameters ##################################################
 current_path = 'data/colour/currentData/' 	# specify path to current data here
