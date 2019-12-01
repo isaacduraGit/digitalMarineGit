@@ -134,13 +134,13 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		Color font_color = Color.BLUE;
 		int thick = 25;
 
-		predictions_high_CHL_locations_button = new JButton("Predictions high CHL locations high biomass blooms");
+		predictions_high_CHL_locations_button = new JButton("Predictions_high_CHL_locations_high_biomass_blooms");
 		predictions_high_CHL_locations_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		predictions_high_CHL_locations_button.setForeground(font_color);
 		predictions_high_CHL_locations_button.addActionListener(this);
 		parent.add(predictions_high_CHL_locations_button);
 
-		chl_predictions_next_day_button = new JButton("CHL predictions next day high biomass blooms");
+		chl_predictions_next_day_button = new JButton("CHL_predictions_next_day_high_biomass_blooms");
 		chl_predictions_next_day_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		chl_predictions_next_day_button.setForeground(font_color);
 		chl_predictions_next_day_button.addActionListener(this);
@@ -196,8 +196,8 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 //
 //		frame.add(jLabel);
 
-		predictions_high_CHL_locations = new JMenuItem("Predictions high CHL locations high biomass blooms");
-		chl_predictions_next_day = new JMenuItem("CHL predictions next day high biomass blooms");
+		predictions_high_CHL_locations = new JMenuItem("Predictions_high_CHL_locations_high_biomass_blooms");
+		chl_predictions_next_day = new JMenuItem("CHL_predictions_next_day_high_biomass_blooms");
 		collect = new JMenuItem("Collect");
 		database = new JMenuItem("Database");
 
@@ -312,7 +312,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 			Login l = new Login();
 
-		} else if (ev.getActionCommand().equals("Predictions high CHL locations high biomass blooms")) {
+		} else if (ev.getActionCommand().equals("Predictions_high_CHL_locations_high_biomass_blooms")) {
 
 			NextPage page = new NextPage();
 			try {
@@ -342,7 +342,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 			page.setVisible(true);
 
-		} else if (ev.getActionCommand().equals("CHL predictions next day high biomass blooms")) {
+		} else if (ev.getActionCommand().equals("CHL_predictions_next_day_high_biomass_blooms")) {
 
 			NextPage page = new NextPage();
 			try {
@@ -352,7 +352,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 				page.add(backgroundImage, BorderLayout.CENTER);
 
 				JLabel background = new JLabel(new ImageIcon(ImageIO
-						.read(new File("/marineDigitalJournal/presentation/swing/CHL_predictions_next_day.png"))));
+						.read(new File("/marineDigitalJournal/presentation/swing/predictions_CHL_next_day.png"))));
 
 				background.setLayout(new BorderLayout());
 
