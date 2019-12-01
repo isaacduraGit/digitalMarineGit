@@ -382,8 +382,10 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 				page.add(backgroundImage, BorderLayout.CENTER);
 
+//				JLabel background = new JLabel(new ImageIcon(
+//						ImageIO.read(new File("/marineDigitalJournal/presentation/swing/swing/results.png"))));
 				JLabel background = new JLabel(new ImageIcon(
-						ImageIO.read(new File("/marineDigitalJournal/presentation/swing/swing/results.png"))));
+						ImageIO.read(new File(Application.getWorkingDir(), "org/marineDigitalJournal/presentation/swing/current_CHL_concentrations.png"))));
 
 				background.setLayout(new BorderLayout());
 

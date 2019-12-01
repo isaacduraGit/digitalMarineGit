@@ -1,56 +1,91 @@
 package org.marineDigitalJournal.neuralnet;
 
-import org.python.core.PyObject;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.python.util.PythonInterpreter;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Properties;
-
 public class DownloadMotu {
-	
-	/*public static void main(String[] args) {
-		
-		DownloadMotu downloadMotu=new DownloadMotu();
-		downloadMotu.downloadSatNear_Real_TimeData();
-		
-		
-	}*/
 
-	public  String downloadSatNear_Real_TimeData() {
-		
-		
-		
-		String lineTerminal="";
+	public static void main(String[] args) {
 
+		System.out.println("Current dir: " + getWorkingDir());
+
+		DownloadMotu display = new DownloadMotu();
+		display.downloadSatNear_Real_TimeData();
+
+	}
+
+	private static String getWorkingDir() {
 		try {
-			
-			
+			return new File(DownloadMotu.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
 
-			ProcessBuilder pb = new ProcessBuilder("python",
-					"neuralnet/downloadMotu.py");
+	public void downloadSatNear_Real_TimeData() {
+
+		// RetrieveEmail retrieveEmail=new RetrieveEmail();
+
+		PythonInterpreter interpreter = new PythonInterpreter();
+
+		String scriptPath = getWorkingDir() + "/org/marineDigitalJournal/neuralnet/downloadMotu.py";
+
+		if (!Files.exists(Paths.get(scriptPath))) { 
+			System.out.println("Script file doens't exists" + scriptPath);
+		}
+		
+		try {
+
+			System.out.println("executing python script: " + scriptPath);
+			
+			ProcessBuilder pb = new ProcessBuilder("python", scriptPath);
+
 			Process p = pb.start();
+
+			p.waitFor();
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line = br.readLine();
-			
-			System.out.print("pepino");
-			
+
 			while (line != null) {
 
-				
+//				if (line.contains("forecastVAlue")) {
+//
+//					DigitalMarineApplication.limit_CHL= "-1";//line.substring(13, 15);
+//
+//				}
+
 				line = br.readLine();
-				
-				lineTerminal=lineTerminal+line+"\n";
+				System.out.println(line);
 			}
 
-			System.out.println("backto java ");
+			// retrieveEmail.retrieveEmail();
 
+//			SendEmail sendEmail = new SendEmail();
+//			
+//			ArrayList email=retrieveEmail.retrieveEmail();
+//			
+//			for(int i=0;i<email.size();i++) {
+//				
+//				
+//				if(((String) email.get(i)).contains("@")) {
+//			
+//			if (DigitalMarineApplication.limit_CHL == "-1") {
+//
+//				sendEmail.send(email.get(i).toString());
+//			}}
+//
+//			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return lineTerminal;
 	}
+
 }

@@ -55,6 +55,7 @@ curDir = os.path.dirname(os.path.realpath(__file__))
 dataDIR= curDir + '/data/colour/currentData/data.nc'             # specify path to input data
 output_path = curDir +'/../presentation/swing/' # specify folder for output data
 
+
 DS=Dataset(dataDIR)
 
 # load values from the ns dataset and print them
