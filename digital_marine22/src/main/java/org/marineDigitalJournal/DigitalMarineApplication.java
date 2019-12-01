@@ -2,9 +2,7 @@ package org.marineDigitalJournal;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -16,7 +14,6 @@ import javax.imageio.ImageIO;
 import javax.mail.MessagingException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -24,9 +21,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
-import javax.swing.filechooser.FileSystemView;
 
-import org.jfree.layout.CenterLayout;
 import org.jfree.ui.tabbedui.VerticalLayout;
 import org.marineDigitalJournal.neuralnet.DisplayData_Thread;
 import org.marineDigitalJournal.neuralnet.Display_Product_Thread;
@@ -66,7 +61,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 	public DigitalMarineApplication() {
 
 		frame = new JFrame("Blue Maritime Digital Journal App ");
-		
+
 		try {
 			initComponents();
 		} catch (IOException e) {
@@ -77,7 +72,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 		frame.setLayout(null);
-		
+
 		frame.setSize(screenSize.width, screenSize.height);
 
 		addMenu();
@@ -86,10 +81,8 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		background.setSize(screenSize.width, screenSize.height);
 
 		background.add(addButtons(), BorderLayout.CENTER);
-		
-		frame.setContentPane(background);
 
-		
+		frame.setContentPane(background);
 
 	}
 
@@ -125,11 +118,11 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		/* Add buttons */
 
 		JPanel parent = new JPanel(new VerticalLayout());
-		parent.setBounds(frame.getWidth()/4, 400, frame.getWidth()/2, frame.getHeight()/2);
-		//parent.setSize(new Dimension(frame.getWidth()/2, frame.getHeight()/2));
+		parent.setBounds(frame.getWidth() / 4, 400, frame.getWidth() / 2, frame.getHeight() / 2);
+		// parent.setSize(new Dimension(frame.getWidth()/2, frame.getHeight()/2));
 		parent.setOpaque(false);
 
-		//parent = (JPanel) container;
+		// parent = (JPanel) container;
 
 		Color font_color = Color.BLUE;
 		int thick = 25;
@@ -181,7 +174,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		exit_button.setForeground(font_color);
 		exit_button.addActionListener(this);
 		parent.add(exit_button);
-		
+
 		return parent;
 	}
 
@@ -321,8 +314,8 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 				page.add(backgroundImage, BorderLayout.CENTER);
 
-				JLabel background = new JLabel(new ImageIcon(ImageIO.read(
-						new File("/marineDigitalJournal/presentation/swing/predictions_high_CHL_locations.png"))));
+				JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File(Application.getImageDir(),
+						"org/marineDigitalJournal/presentation/swing/predictions_high_CHL_locations.png"))));
 
 				background.setLayout(new BorderLayout());
 
@@ -346,21 +339,27 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 			NextPage page = new NextPage();
 			try {
+//
+//				BackgroundImageCHL_predictions_next_day backgroundImage = new BackgroundImageCHL_predictions_next_day();
+//				page.add(backgroundImage, BorderLayout.CENTER);
 
-				BackgroundImageCHL_predictions_next_day backgroundImage = new BackgroundImageCHL_predictions_next_day();
-
-				page.add(backgroundImage, BorderLayout.CENTER);
-
-				JLabel background = new JLabel(new ImageIcon(ImageIO
-						.read(new File("/marineDigitalJournal/presentation/swing/predictions_CHL_next_day.png"))));
-
-				background.setLayout(new BorderLayout());
-
-				page.setContentPane(background);
-
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			} catch (Exception e) {
 				e.printStackTrace();
+			} finally {
+
+				try {
+					JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File(Application.getImageDir(),
+							"org/marineDigitalJournal/presentation/swing/predictions_CHL_next_day.png"))));
+
+					background.setLayout(new BorderLayout());
+
+					page.setContentPane(background);
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 			}
 
 			page.setTitle("CHL predictions next day");
@@ -384,8 +383,8 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 //				JLabel background = new JLabel(new ImageIcon(
 //						ImageIO.read(new File("/marineDigitalJournal/presentation/swing/swing/results.png"))));
-				JLabel background = new JLabel(new ImageIcon(
-						ImageIO.read(new File(Application.getWorkingDir(), "org/marineDigitalJournal/presentation/swing/current_CHL_concentrations.png"))));
+				JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File(Application.getImageDir(),
+						"org/marineDigitalJournal/presentation/swing/current_CHL_concentrations.png"))));
 
 				background.setLayout(new BorderLayout());
 
@@ -427,9 +426,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 	public static void main(String[] args) throws IOException, MessagingException {
 
-
 		new DigitalMarineApplication().setVisible(true);
-
 
 		frame.setLayout(null);
 
