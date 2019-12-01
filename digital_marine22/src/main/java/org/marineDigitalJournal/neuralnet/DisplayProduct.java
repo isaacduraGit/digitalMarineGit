@@ -1,32 +1,22 @@
 package org.marineDigitalJournal.neuralnet;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.InputStreamReader;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.marineDigitalJournal.Application;
 import org.python.util.PythonInterpreter;
 
 public class DisplayProduct {
 
 	public static void main(String[] args) {
 
-		System.out.println("Current dir: " + getWorkingDir());
+		System.out.println("Current dir: " + Application.getWorkingDir());
 
 		DisplayProduct display = new DisplayProduct();
 		display.display();
 
-	}
-
-	private static String getWorkingDir() {
-		try {
-			return new File(DisplayProduct.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-			return "";
-		}
 	}
 
 	public void display() {
@@ -35,7 +25,7 @@ public class DisplayProduct {
 
 		PythonInterpreter interpreter = new PythonInterpreter();
 
-		String scriptPath = getWorkingDir() + "/org/marineDigitalJournal/neuralnet/plot_product.py";
+		String scriptPath = Application.getWorkingDir() + "/org/marineDigitalJournal/neuralnet/plot_product.py";
 
 		if (!Files.exists(Paths.get(scriptPath))) { 
 			System.out.println("Script file doens't exists" + scriptPath);

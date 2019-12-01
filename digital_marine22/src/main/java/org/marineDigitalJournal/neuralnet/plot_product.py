@@ -6,8 +6,6 @@ import matplotlib as mpl
 mpl.use('Agg') # no UI backend
 import matplotlib.pyplot as plt
 
-
-
 def scale_bar(ax, length=None, location=(0.5, 0.05), linewidth=3):
     """
     ax is the axes to draw the scalebar on.
@@ -17,7 +15,6 @@ def scale_bar(ax, length=None, location=(0.5, 0.05), linewidth=3):
     linewidth is the thickness of the scalebar.
     credits to https://stackoverflow.com/users/4278282/siyh
     """
-
     #Get the limits of the axis in lat long
     llx0, llx1, lly0, lly1 = ax.get_extent(ccrs.PlateCarree())
     #Make tmc horizontally centred on the middle of the map,
@@ -51,9 +48,13 @@ def scale_bar(ax, length=None, location=(0.5, 0.05), linewidth=3):
     ax.text(sbx, sby, str(length) + ' km', transform=tmc,
             horizontalalignment='center', verticalalignment='bottom')
 
-print("test")
-dataDIR='data/colour/currentData/data.nc'             # specify path to input data
-output_path = '../presentation/swing/' # specify folder for output data
+
+import os
+curDir = os.path.dirname(os.path.realpath(__file__))
+
+dataDIR= curDir + '/data/colour/currentData/data.nc'             # specify path to input data
+output_path = curDir +'/../presentation/swing/' # specify folder for output data
+
 
 DS=Dataset(dataDIR)
 
@@ -62,7 +63,6 @@ chl_data = DS.variables["CHL"][0]
 lats = DS.variables["lat"][:]
 lons = DS.variables["lon"][:]
 print(chl_data)
-print("test")
 
 # plot dataset in a plot and save it under 'results.png'
 ax = mpl.pyplot.axes(projection=ccrs.PlateCarree())
