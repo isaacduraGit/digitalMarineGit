@@ -52,8 +52,13 @@ def scale_bar(ax, length=None, location=(0.5, 0.05), linewidth=3):
 print("ctest")
 ## parameters
 Colour_data_shape = (4416,5664) # shape of output data (needed for plotting)
-current_path = 'data/colour/currentData/' 	# path to current data file
-output_path = '../presentation/swing/'
+
+import os
+curDir = os.path.dirname(os.path.realpath(__file__))
+
+current_path = curDir + 'data/colour/currentData/' 	# path to current data file
+output_path = curDir + '../presentation/swing/'
+
 console_path = ''
 model_path = ''					# path to trained model
 insitu_input = 0 				# insitu data input (for now random)

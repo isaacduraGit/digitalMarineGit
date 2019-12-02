@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 
 import org.marineDigitalJournal.Application;
 
-public class PythonScript {
+public abstract class PythonScript {
 	
 
 	protected void execute(String pythonScript) {
