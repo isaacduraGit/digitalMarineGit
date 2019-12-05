@@ -57,7 +57,7 @@ import os
 curDir = os.path.dirname(os.path.realpath(__file__))
 
 current_path = curDir + '/data/colour/currentData/' 	# path to current data file
-output_path = curDir + '../presentation/swing/'
+output_path = curDir + '/../presentation/swing/'
 
 console_path = curDir
 model_path = curDir					# path to trained model
