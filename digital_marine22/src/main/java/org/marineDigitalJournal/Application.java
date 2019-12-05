@@ -19,7 +19,15 @@ public class Application {
 				System.out.println("jar dir: " + jarPath);
 				return jarPath;
 			}
-			return new File(uri).getPath();
+			else if (uri.toString().endsWith(".jar")) {
+				String jarPath = new File(uri).getParentFile().getAbsolutePath();
+				System.out.println("jar dir: " + jarPath);
+				return jarPath;				
+			}
+			
+			String dir = new File(uri).getPath();
+			System.out.println("work dir: " + dir);
+			return dir;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "";

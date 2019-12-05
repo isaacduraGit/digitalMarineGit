@@ -8,11 +8,14 @@ from netCDF4 import Dataset
 import glob, sys
 print("test")
 
+import os
+curDir = os.path.dirname(os.path.realpath(__file__))
+
 ###### parameters ##################################################
-current_path = 'data/colour/currentData/' 	# specify path to current data here
-historic_path = 'data/colour/historicData/'	# specity path to historic data here
-model_path = ''					# specify path to model here
-console_path = ''				# specify path for console output
+current_path = curDir + '/data/colour/currentData/' 	# specify path to current data here
+historic_path = curDir + '/data/colour/historicData/'	# specity path to historic data here
+model_path = curDir					# specify path to model here
+console_path = curDir				# specify path for console output
 
 epochs = 1						# specify the number of epochs you want to use for training
 Colour_data_size = 4416*5664	# size of the colour data
@@ -25,13 +28,13 @@ sys.stdout = open(console_path+'console_output_train_one_day.txt', 'w')
 
 ## open existing model and load weights ############################
 # load JSON file with model
-json_file = open(model_path+'model.json', 'r')
+json_file = open(model_path+'/model.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 loaded_model = model_from_json(loaded_model_json)
 
 # load weights into new model
-loaded_model.load_weights(model_path+"model.h5")
+loaded_model.load_weights(model_path+"/model.h5")
 loaded_model.compile(loss='mse', optimizer='adam', metrics=['mae'])
 print("Loaded model from disk")
 ####################################################################
@@ -62,7 +65,7 @@ CHL_levels_Y[CHL_levels_Y==np.min(CHL_levels_Y)] == 0
 loaded_model.fit(np.expand_dims(X,axis=0), CHL_levels_Y, epochs=1, batch_size=1)
 
 # serialize weights to HDF5
-loaded_model.save_weights(model_path+"model.h5")
+loaded_model.save_weights(model_path+"/model.h5")
 print("Saved model to disk")    
 
 # close filewriter
