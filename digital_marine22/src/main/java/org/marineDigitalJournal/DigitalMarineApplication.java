@@ -24,9 +24,13 @@ import javax.swing.JSlider;
 
 import org.jfree.ui.tabbedui.VerticalLayout;
 import org.marineDigitalJournal.neuralnet.DisplayData_Thread;
+import org.marineDigitalJournal.neuralnet.DisplayProduct;
 import org.marineDigitalJournal.neuralnet.Display_Product_Thread;
+import org.marineDigitalJournal.neuralnet.DownloadMotu;
 import org.marineDigitalJournal.neuralnet.Downloadind_Sat_NRT_Data;
+import org.marineDigitalJournal.neuralnet.TrainModel;
 import org.marineDigitalJournal.neuralnet.Trainning_Model;
+import org.marineDigitalJournal.neuralnet.UseModelScript;
 import org.marineDigitalJournal.presentation.swing.BackgroundImage;
 import org.marineDigitalJournal.presentation.swing.BackgroundImageCHL_predictions_next_day;
 import org.marineDigitalJournal.presentation.swing.BackgroundImagePredictions_high_CHL_locations;
@@ -91,25 +95,43 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
 		setTitle("File");
+		
+		new Thread() {
+			public void run() {
+				
+				System.out.println("1. downlaod data --------->");
+				new DownloadMotu().downloadSatNear_Real_TimeData();
 
-		Display_Product_Thread displayProduct_Thread = new Display_Product_Thread();
-		displayProduct_Thread.launch();
+				System.out.println("2. train model  --------->");
+				new TrainModel().train_model();
+				
+				System.out.println("3. display product --------->");
+				new DisplayProduct().display();
+				
+				System.out.println("4. use_model.py ---->");
+				new UseModelScript().display();
+			};
+		}.start(); //LOL
+			
 
-		Downloadind_Sat_NRT_Data downloadind_Sat_NRT_Data = new Downloadind_Sat_NRT_Data();
 
-		downloadind_Sat_NRT_Data.launch();
+		//Display_Product_Thread displayProduct_Thread = new Display_Product_Thread();
+		//displayProduct_Thread.launch();
 
-		DisplayData_Thread displayData_Thread = new DisplayData_Thread();
-		displayData_Thread.launch();
+		//Downloadind_Sat_NRT_Data downloadind_Sat_NRT_Data = new Downloadind_Sat_NRT_Data();
+		//downloadind_Sat_NRT_Data.launch();
 
+		//Display user_model instear ERROR
+		//Thanks Anwar I need to correct taht I miised it
+		
 		/*
 		 * try { DisplayData_Thread.sleep(2000); } catch (InterruptedException e) { //
 		 * TODO Auto-generated catch block e.printStackTrace(); }
 		 */
 
-		Trainning_Model trainning_Model = new Trainning_Model();
+		//Trainning_Model trainning_Model = new Trainning_Model();
 
-		trainning_Model.launch();
+		//trainning_Model.launch();
 
 	}
 

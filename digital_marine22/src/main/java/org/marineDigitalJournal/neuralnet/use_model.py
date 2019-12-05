@@ -56,26 +56,26 @@ Colour_data_shape = (4416,5664) # shape of output data (needed for plotting)
 import os
 curDir = os.path.dirname(os.path.realpath(__file__))
 
-current_path = curDir + 'data/colour/currentData/' 	# path to current data file
+current_path = curDir + '/data/colour/currentData/' 	# path to current data file
 output_path = curDir + '../presentation/swing/'
 
-console_path = ''
-model_path = ''					# path to trained model
+console_path = curDir
+model_path = curDir					# path to trained model
 insitu_input = 0 				# insitu data input (for now random)
 max_level = 10	# maximum CHL concentration which should trigger an email
 #################################################
 
 # write console output to txt file
-sys.stdout = open(console_path+'console_output_use_model.txt', 'w')
+sys.stdout = open(console_path+'/console_output_use_model.txt', 'w')
 
 # load JSON file with model
-json_file = open(model_path+'model.json', 'r')
+json_file = open(model_path+'/model.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 loaded_model = model_from_json(loaded_model_json)
 
 # load weights into new model
-loaded_model.load_weights("model.h5")
+loaded_model.load_weights(curDir + "/model.h5")
 print("Loaded model from disk")
 
 # load CHL levels from colour data
