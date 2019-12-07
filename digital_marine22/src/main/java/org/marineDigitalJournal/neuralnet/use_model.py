@@ -113,13 +113,15 @@ ax.coastlines()
 scale_bar(ax,1000)
 plt.savefig(output_path+'predictions_high_CHL_locations.png')
 
+#Sending Email
+
 if forecast[forecast >= max_level].all(0)==True:
     
    CHL_Max_Limit=-1
     
 
 #plt.imshow(forecast.reshape((4416, 5664)))
-#change by Isaac
+
 
 passToJava="forecastVAlue"+str(CHL_Max_Limit)
 
