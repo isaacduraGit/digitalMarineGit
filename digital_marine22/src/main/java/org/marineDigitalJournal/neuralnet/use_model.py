@@ -49,7 +49,7 @@ def scale_bar(ax, length=None, location=(0.5, 0.05), linewidth=3):
     #Plot the scalebar label
     ax.text(sbx, sby, str(length) + ' km', transform=tmc,
             horizontalalignment='center', verticalalignment='bottom')
-print("ctest")
+
 ## parameters
 Colour_data_shape = (4416,5664) # shape of output data (needed for plotting)
 current_path = 'data/colour/currentData/' 	# path to current data file
@@ -57,7 +57,7 @@ output_path = '../presentation/swing/'
 console_path = ''
 model_path = ''					# path to trained model
 insitu_input = 0 				# insitu data input (for now random)
-max_level = 10	# maximum CHL concentration which should trigger an email
+max_level = 1	# maximum CHL concentration which should trigger an email
 #################################################
 
 # write console output to txt file
@@ -112,6 +112,19 @@ plt.contourf(lons, lats, forecast.reshape((4416, 5664)), 60, transform=ccrs.Plat
 ax.coastlines()
 scale_bar(ax,1000)
 plt.savefig(output_path+'predictions_high_CHL_locations.png')
+
+if forecast[forecast >= max_level].all(0)==True:
+    
+   CHL_Max_Limit=-1
+    
+
+#plt.imshow(forecast.reshape((4416, 5664)))
+#change by Isaac
+
+passToJava="forecastVAlue"+str(CHL_Max_Limit)
+
+print(passToJava)
+
 
 # close filewriter
 sys.stdout.close()
