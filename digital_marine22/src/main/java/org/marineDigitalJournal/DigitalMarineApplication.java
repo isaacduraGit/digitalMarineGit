@@ -35,6 +35,7 @@ import org.marineDigitalJournal.presentation.swing.BackgroundImage;
 import org.marineDigitalJournal.presentation.swing.BackgroundImageCHL_predictions_next_day;
 import org.marineDigitalJournal.presentation.swing.BackgroundImagePredictions_high_CHL_locations;
 import org.marineDigitalJournal.presentation.swing.BackgroundImage_Product;
+import org.marineDigitalJournal.presentation.swing.ImageFrame;
 import org.marineDigitalJournal.presentation.swing.Login;
 import org.marineDigitalJournal.presentation.swing.NextPage;
 import org.marineDigitalJournal.presentation.swing.Register;
@@ -56,8 +57,8 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 	static private JButton maps_button, exit_button;
 
 	static private JMenuItem predictions_high_CHL_locations, chl_predictions_next_day;
-	static private JMenuItem collect, database, about, myAccount;
-	static private JMenuItem funding, exit, trainModel, download;
+	static private JMenuItem collect, database, about;
+	static private JMenuItem funding, exit;
 
 	// slider
 	static JSlider b;
@@ -115,23 +116,6 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 			
 
 
-		//Display_Product_Thread displayProduct_Thread = new Display_Product_Thread();
-		//displayProduct_Thread.launch();
-
-		//Downloadind_Sat_NRT_Data downloadind_Sat_NRT_Data = new Downloadind_Sat_NRT_Data();
-		//downloadind_Sat_NRT_Data.launch();
-
-		//Display user_model instear ERROR
-		//Thanks Anwar I need to correct taht I miised it
-		
-		/*
-		 * try { DisplayData_Thread.sleep(2000); } catch (InterruptedException e) { //
-		 * TODO Auto-generated catch block e.printStackTrace(); }
-		 */
-
-		//Trainning_Model trainning_Model = new Trainning_Model();
-
-		//trainning_Model.launch();
 
 	}
 
@@ -218,7 +202,6 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 		about = new JMenuItem("About");
 		funding = new JMenuItem("Funding");
-		myAccount = new JMenuItem("MyAccount");
 		exit = new JMenuItem("Exit");
 
 		menu.add(predictions_high_CHL_locations).addActionListener(this);
@@ -328,122 +311,31 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 			Login l = new Login();
 
 		} else if (ev.getActionCommand().equals("Predictions_high_CHL_locations_high_biomass_blooms")) {
-
-			NextPage page = new NextPage();
-			try {
-
-				BackgroundImagePredictions_high_CHL_locations backgroundImage = new BackgroundImagePredictions_high_CHL_locations();
-
-				page.add(backgroundImage, BorderLayout.CENTER);
-
-				JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File(Application.getImageDir(),
-						"org/marineDigitalJournal/presentation/swing/predictions_high_CHL_locations.png"))));
-
-				background.setLayout(new BorderLayout());
-
-				page.setContentPane(background);
-
-			} catch (IOException E) {
-				// TODO Auto-generated catch block
-				E.printStackTrace();
-			}
-
-			page.setTitle("Predictions high CHL locations high biomass blooms");
-			page.getContentPane().setBackground(Color.WHITE);
-			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-			page.setSize(screenSize.width, screenSize.height);
-
-			// page.setBounds(100, 500, 800, 800);
-
-			page.setVisible(true);
+			//What's this for ?!?
+			//BackgroundImagePredictions_high_CHL_locations backgroundImage = new BackgroundImagePredictions_high_CHL_locations();
+			
+			String imageFile = "org/marineDigitalJournal/presentation/swing/predictions_high_CHL_locations.png";
+			displayImage(imageFile);
 
 		} else if (ev.getActionCommand().equals("CHL_predictions_next_day_high_biomass_blooms")) {
-
-			NextPage page = new NextPage();
-			try {
-//
-//				BackgroundImageCHL_predictions_next_day backgroundImage = new BackgroundImageCHL_predictions_next_day();
-//				page.add(backgroundImage, BorderLayout.CENTER);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-
-				try {
-					JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File(Application.getImageDir(),
-							"org/marineDigitalJournal/presentation/swing/predictions_CHL_next_day.png"))));
-
-					background.setLayout(new BorderLayout());
-
-					page.setContentPane(background);
-					
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-			}
-
-			page.setTitle("CHL predictions next day");
-			page.getContentPane().setBackground(Color.WHITE);
-
-			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-			page.setSize(screenSize.width, screenSize.height);
-
-			// page.setBounds(800, 800, 800, 800);
-
-			page.setVisible(true);
+			displayImage("org/marineDigitalJournal/presentation/swing/predictions_CHL_next_day.png");
+			
 
 		} else if (ev.getActionCommand().equals("Maps")) {
-
-			NextPage page = new NextPage();
-			try {
-
-				BackgroundImage_Product backgroundImage = new BackgroundImage_Product();
-
-				page.add(backgroundImage, BorderLayout.CENTER);
-
-//				JLabel background = new JLabel(new ImageIcon(
-//						ImageIO.read(new File("/marineDigitalJournal/presentation/swing/swing/results.png"))));
-				JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File(Application.getImageDir(),
-						"org/marineDigitalJournal/presentation/swing/current_CHL_concentrations.png"))));
-
-				background.setLayout(new BorderLayout());
-
-				page.setContentPane(background);
-
-				/*
-				 * page.setContentPane(new JLabel(new ImageIcon( ImageIO.read(new
-				 * File("//marineDigitalJournal//presentation//swing//results.png")))));
-				 */
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			/*
-			 * JLabel jLabel = new JLabel();
-			 * 
-			 * jLabel.setText("CMEMS");
-			 * 
-			 * page.add(jLabel);
-			 */
-
-			page.setTitle("Maps");
-			page.getContentPane().setBackground(Color.WHITE);
-
-			page.setTitle("Predictions high CHL locations");
-			page.getContentPane().setBackground(Color.WHITE);
-			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-			page.setSize(screenSize.width, screenSize.height);
-
-			page.setVisible(true);
+			//displayImage("org/marineDigitalJournal/presentation/swing/predictions_CHL_next_day.png");
+			displayImage("org/marineDigitalJournal/presentation/swing/current_CHL_concentrations.png");
 
 		} else if (ev.getActionCommand().equals("Collect")) {
 			Register f = new Register();
 		} else if (ev.getActionCommand().equals("Registration")) {
 			Register f = new Register();
 		}
+	}
+
+	private ImageFrame displayImage(String imageFile) {
+		ImageFrame page = new ImageFrame("Predictions high CHL locations high biomass blooms", imageFile);
+		page.setVisible(true);
+		return page;
 	}
 
 	public static void main(String[] args) throws IOException, MessagingException {
