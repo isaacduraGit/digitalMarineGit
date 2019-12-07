@@ -58,7 +58,7 @@ output_path = '../presentation/swing/'
 console_path = ''
 model_path = ''					# path to trained model
 insitu_input = 0 				# insitu data input (for now random)
-max_level = 1	# maximum CHL concentration which should trigger an email
+max_level = 10	# maximum CHL concentration which should trigger an email
 #################################################
 
 # write console output to txt file
