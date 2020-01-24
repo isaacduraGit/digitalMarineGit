@@ -121,9 +121,6 @@ if forecast[forecast >= max_level].all(0)==True:
    CHL_Max_Limit=-1
     
 
-#plt.imshow(forecast.reshape((4416, 5664)))
-
-
 passToJava="forecastVAlue"+str(CHL_Max_Limit)
 
 print(passToJava)

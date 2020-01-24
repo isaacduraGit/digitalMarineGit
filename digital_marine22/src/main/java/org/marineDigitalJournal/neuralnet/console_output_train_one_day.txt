@@ -1,0 +1,6 @@
+test
+Loaded model from disk
+Epoch 1/1
+
+1/1 [==============================] - 6s 6s/step - loss: 433623.9688 - mean_absolute_error: 434.0493
+Saved model to disk
