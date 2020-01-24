@@ -9,14 +9,14 @@ public class FileChooser {
 	
 	public boolean fileChoose() {
 
-	JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+	JFileChooser jfchooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
-	int returnValue = jfc.showOpenDialog(null);
+	int returnValue = jfchooser.showOpenDialog(null);
 
 	if(returnValue==JFileChooser.APPROVE_OPTION)
 	{
 
-		File selectedFile = jfc.getSelectedFile();
+		File selectedFile = jfchooser.getSelectedFile();
 
 		System.out.println(selectedFile.getAbsolutePath());
 
