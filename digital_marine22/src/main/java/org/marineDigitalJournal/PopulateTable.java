@@ -28,67 +28,7 @@ public class PopulateTable {
 
     public JTable resultSetToTableModel(ResultSet rs, JTable table) throws SQLException {
 
-//        try {
-//            //Create new table model
-//            tableModel = new DefaultTableModel(); //{
-//            /* @Override
-//             public Class<?> getColumnClass(int column) {
-//                 if (column==6) return ImageIcon.class;
-//                 return Object.class;
-//             }
-//        	
-//         };
-//             */
-//
-//            //Retrieve meta data from ResultSet
-//            ResultSetMetaData metaData = rs.getMetaData();
-//
-//            //Get number of columns from meta data
-//            int columnCount = metaData.getColumnCount();
-//
-//            //Get all column names from meta data and add columns to table model
-//            for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
-//                tableModel.addColumn(metaData.getColumnLabel(columnIndex));
-//            }
-//
-//            //Create array of Objects with size of column count from meta data
-//            Object[] row = new Object[columnCount];
-//
-//            //Scroll through result set
-//            while (rs.next()) {
-//                //Get object from column with specific index of result set to array of objects
-//                for (int i = 0; i < columnCount; i++) {
-//                    int columnIndex = i + 1;
-//
-//                    //column 7 ("user_file") has blobs
-//                    //So let's deal with it a little bit differently
-//                    if (columnIndex == 7) {
-//                        //Retrieve the binary stream from column 7
-//                        //using try-with-resources so that the stream
-//                        //gets closed automatically
-//                        try (InputStream inputStream = rs.getBinaryStream(columnIndex)) {
-//                            row[i] = ImageIO.read(inputStream);
-//                        }
-//                    } else {
-//                        row[i] = rs.getObject(columnIndex);
-//                    }
-//                }
-//
-//                //Now add row to table model with that array of objects as an argument
-//                tableModel.addRow(row);
-//            }
-//        } catch (IOException | SQLException e) {
-//            LOG.log(Level.SEVERE, null, e);
-//        }
-//        //Now add that table model to your table and you are done :D
-//        table.setModel(model);
-//        //Ensure that "user_file" column gets its custom image renderer
-//        TableColumn userFileColumn = table.getColumnModel().getColumn(7);
-//        userFileColumn.setCellRenderer(new ImageRenderer());
-//        
-//        return table;
-
-        //Create a swing worker that will do all the
+        //Create a Swing worker that will do all the
         //hard work of pulling values from database
         //in a background thread
         SwingWorker<DefaultTableModel, Void> worker = new SwingWorker<DefaultTableModel, Void>() {
@@ -284,12 +224,11 @@ public class PopulateTable {
     	//using try-with-resources so that the stream
     	//gets closed automatically
     	try (InputStream inputStream = rs.getBinaryStream(columnIndex)) {
-    	//rows[i] = ImageIO.read(inputStream);
+    	
     		
     		rows[i] = inputStream != null ? ImageIO.read(inputStream): null;
     	
-    		//rows1[i][0]=rows;
-    	
+    
     	} catch (IOException ex) {
     	Logger.getLogger(PopulateTable.class.getName()).log(Level.SEVERE, null, ex);
     	}
