@@ -53,7 +53,6 @@ public class ImageFrame extends JFrame {
 			panel.add(downloadButton, BorderLayout.NORTH);
 			
 			Image scaledInstance = new ImageIcon(ImageIO.read(imageFile)).getImage().getScaledInstance((int)screenSize.getWidth(), (int)screenSize.getHeight(), Image.SCALE_SMOOTH);
-			//Image scaledInstance = new ImageIcon(ImageIO.read(imageFile)).getImage();
 			JLabel imageLabel = new JLabel(new ImageIcon(scaledInstance));
 			panel.add(imageLabel, BorderLayout.CENTER);
 			
@@ -67,7 +66,6 @@ public class ImageFrame extends JFrame {
 		
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setDialogTitle("Specify a directory to save in");
-		//fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		fileChooser.setSelectedFile(new File("image.png"));
 		fileChooser.setFileFilter(new FileNameExtensionFilter("Image file","png"));
 
