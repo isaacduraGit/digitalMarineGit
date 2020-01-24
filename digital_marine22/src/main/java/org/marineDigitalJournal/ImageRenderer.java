@@ -27,14 +27,8 @@ public    class ImageRenderer extends DefaultTableCellRenderer {
 	 //a JLabel and paint the image onto the label
 	 //using an ImageIcon wrapper
 	 if (column == 6 && value instanceof BufferedImage) {
-	 //BufferedImage image = (BufferedImage) value;
-	 //JLabel label = new JLabel(new ImageIcon(image));
-	 //Try to handle labels that might become too big
-	// label.setPreferredSize(new Dimension(18, 18));
-	// label.setMaximumSize(new Dimension(18, 18));
 		 
-		 
-		 int width = 48;
+	 	 int width = 48;
 		 int height = 48;
 		 BufferedImage bufferedImage = (BufferedImage) value;
 
@@ -56,7 +50,7 @@ public    class ImageRenderer extends DefaultTableCellRenderer {
 		 
 	 
 	 }
-	 //If we're nor dealing with column 7
+	 //If we're not dealing with column 7
 	 //then let the table decide on its own
 	 //what it should use to render the value
 	 return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
