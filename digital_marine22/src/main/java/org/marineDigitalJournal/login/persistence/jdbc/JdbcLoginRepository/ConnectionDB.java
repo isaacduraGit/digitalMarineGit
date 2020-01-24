@@ -14,7 +14,7 @@ import org.jasypt.util.text.BasicTextEncryptor;
 public class ConnectionDB {
 
 	static String prop;
-	static final String DB_SERVER = "ec2-18-217-120-134.us-east-2.compute.amazonaws.com"; 
+	static final String DB_SERVER = "ec2-18-217-120-134.us-east-2.compute.amazonaws.com";
 	static final int DB_PORT = 3306;
 	static final String DB_USER = "admin_db";
 	static final String DB_PASS = "AbMEXzM75u3qGfnNBthzfcyxmBhmYL4U";
@@ -27,33 +27,33 @@ public class ConnectionDB {
 			while (rs.next()) {
 				String u = rs.getString("user");
 				String p = rs.getString("pwd");
-				//System.out.println(u + " " + p);
+
 				if (user.equals(u)) {
-					if(pwd.equals(p)) {
+					if (pwd.equals(p)) {
 						return true;
 					}
 				}
 			}
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 			return false;
 		}
 		return false;
 	}
-	
+
 	public boolean updateRecord(String column, Object data, Object id) {
 		String columnName = column;
-        String dataVal = data.toString();
-        String rowId = id.toString();
-		int rs=0;
-        try {
-        	Connection connection = this.connect();
-        	PreparedStatement st = (PreparedStatement) connection.prepareStatement(
-					"update userUnit set "+columnName+" = "+dataVal+" where user_id = "+rowId);
+		String dataVal = data.toString();
+		String rowId = id.toString();
+		int rs = 0;
+		try {
+			Connection connection = this.connect();
+			PreparedStatement st = (PreparedStatement) connection.prepareStatement(
+					"update userUnit set " + columnName + " = " + dataVal + " where user_id = " + rowId);
 			rs = st.executeUpdate();
-			
-        }catch (SQLException e) {
+
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
 		}
@@ -62,39 +62,38 @@ public class ConnectionDB {
 		}
 		return false;
 	}
-	
+
 	private String decrypt(String encodedText) {
 		String decodedText;
 		BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
 		textEncryptor.setPassword("digital_marine");
-		
-		//String myEncryptedText = textEncryptor.encrypt(DB_PASS);
-		
 		decodedText = textEncryptor.decrypt(encodedText);
-		//System.out.println(decodedText);
+
 		return decodedText;
 	}
+
 	/**
-	   * Connect to the database
-	   *
-	   * @return the Connection object
-	   */
-	  private Connection connect() throws SQLException{
-	      // Mysql connection string
-	      String url = "jdbc:mysql://"+DB_SERVER+":"+ DB_PORT + "/user_collect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	      Connection conn= null;
-	      
-	      String pass = decrypt(DB_PASS);
-	      conn = DriverManager.getConnection(url, DB_USER, pass);
-	      //conn.setAutoCommit(false);
-	      return conn;
-	  }
-	  
-	public boolean conectionInsert(String user_name, String user_surname,
-			String user_email, String user_phone, String user_comments, File user_file) {
+	 * Connect to the database
+	 *
+	 * @return the Connection object
+	 */
+	private Connection connect() throws SQLException {
+		// Mysql connection string
+		String url = "jdbc:mysql://" + DB_SERVER + ":" + DB_PORT
+				+ "/user_collect?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		Connection conn = null;
+
+		String pass = decrypt(DB_PASS);
+		conn = DriverManager.getConnection(url, DB_USER, pass);
+
+		return conn;
+	}
+
+	public boolean conectionInsert(String user_name, String user_surname, String user_email, String user_phone,
+			String user_comments, File user_file) {
 		Connection connection = null;
 		PreparedStatement st = null;
-		int rs=0;
+		int rs = 0;
 
 		try {
 
@@ -112,12 +111,11 @@ public class ConnectionDB {
 
 			st.setString(5, user_comments);
 
-			
 			try {
-				if(user_file != null) {
-					st.setBlob(6, new FileInputStream(user_file));}
-				else {
-					//st.setBlob(6, null);
+				if (user_file != null) {
+					st.setBlob(6, new FileInputStream(user_file));
+				} else {
+
 					st.setNull(6, java.sql.Types.BLOB);
 				}
 			} catch (FileNotFoundException e1) {
@@ -152,19 +150,13 @@ public class ConnectionDB {
 
 	public ResultSet conectionUpdate(Connection connection, PreparedStatement st) throws SQLException {
 
-	
-	
-	
-		 connection = this.connect();
-		 st = (PreparedStatement) connection
-				.prepareStatement("SELECT * FROM userUnit");
+		connection = this.connect();
+		st = (PreparedStatement) connection.prepareStatement("SELECT * FROM userUnit");
 
 		ResultSet rs = st.executeQuery();
-	
-	
-	return rs;
-	
-	
+
+		return rs;
+
 	}
 
 	public static void closePreparedStatement(PreparedStatement pstmt) {
@@ -200,7 +192,5 @@ public class ConnectionDB {
 		}
 
 	}
-
-	
 
 }
