@@ -56,14 +56,8 @@ public class Database extends JFrame implements TableModelListener  {
 
 			PopulateTable populateTable = new PopulateTable();
 
-			// for(int s=0;s<rs.getFetchSize();s++) {
-
-			// Object[] rows = populateTable.getRowsFromResultSet(rs); // changed adnan
 			tableModel = populateTable.getRowsFromResultSet(rs, tableModel);
-			// }
-
-			// tableModel.addRow(rows);
-
+			
 			JScrollPane jScrollPane = new javax.swing.JScrollPane();
 			JTable table = new JTable();
 
@@ -77,8 +71,6 @@ public class Database extends JFrame implements TableModelListener  {
 			userFileColumn.setCellRenderer(new ImageRenderer());
 
 			jScrollPane.setViewportView(table);
-
-			//final JFrame frame = new JFrame();
 
 			getContentPane().add(jScrollPane, BorderLayout.CENTER);
 
@@ -104,7 +96,6 @@ public class Database extends JFrame implements TableModelListener  {
 	    String column = model.getColumnName(col);
 	    Object data = model.getValueAt(row, col);
 	    Object id = model.getValueAt(row, 0);
-	    //System.out.println("tableChanded works"+column+data.toString()+id.toString());
 	    ConnectionDB connectionDB = new ConnectionDB();
 	    boolean result = connectionDB.updateRecord(column, data, id);
 	    if(result) {
