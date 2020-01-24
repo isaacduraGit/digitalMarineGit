@@ -31,7 +31,6 @@ public class Register
     	int x=100, y =100;
         setTitle("Data Collection Form"); 
         setBounds(300, 50, 550, 680); 
-        //setDefaultCloseOperation(EXIT_ON_CLOSE); 
         setResizable(false); 
   
         c = getContentPane(); 
@@ -279,12 +278,8 @@ public class Register
             		user_file = null;
             	}
             	
-            	/*if (user_name.isEmpty() || user_surname.isEmpty() ||
-            			user_email.isEmpty() || user_phone.isEmpty() ||
-            			!user_file.isFile())*/ 
             	if (user_email.isEmpty() )
             	{
-            		//res.setText("All fields are mandatory!");
             		res.setText("Email is mandatory!");
             		return;
             	}
