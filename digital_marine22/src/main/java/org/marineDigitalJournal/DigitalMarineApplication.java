@@ -42,9 +42,6 @@ import org.marineDigitalJournal.presentation.swing.Register;
 
 public class DigitalMarineApplication extends JFrame implements ActionListener {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public static String limit_CHL = "";
@@ -112,11 +109,8 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 				System.out.println("4. use_model.py ---->");
 				new UseModelScript().display();
 			};
-		}.start(); //LOL
+		}.start();
 			
-
-
-
 	}
 
 	private JPanel addButtons() {
@@ -125,10 +119,8 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 		JPanel parent = new JPanel(new VerticalLayout());
 		parent.setBounds(frame.getWidth() / 4, 400, frame.getWidth() / 2, frame.getHeight() / 2);
-		// parent.setSize(new Dimension(frame.getWidth()/2, frame.getHeight()/2));
+		
 		parent.setOpaque(false);
-
-		// parent = (JPanel) container;
 
 		Color font_color = Color.BLUE;
 		int thick = 25;
@@ -191,10 +183,6 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 		menu = new JMenu("Home");
 
-//		JLabel jLabel = new JLabel("Blue Maritime Digital Journal App");
-//
-//		frame.add(jLabel);
-
 		predictions_high_CHL_locations = new JMenuItem("Predictions_high_CHL_locations_high_biomass_blooms");
 		chl_predictions_next_day = new JMenuItem("CHL_predictions_next_day_high_biomass_blooms");
 		collect = new JMenuItem("Collect");
@@ -232,7 +220,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 	// to get the action performed
 	// by the user and act accordingly
 	public void actionPerformed(ActionEvent ev) {
-		// System.out.println(ev.getSource());
+		
 		if (ev.getActionCommand().equals("Exit")) {
 			System.exit(0);
 		} else if (ev.getActionCommand().equals("Funding")) {
@@ -311,8 +299,6 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 			Login l = new Login();
 
 		} else if (ev.getActionCommand().equals("Predictions_high_CHL_locations_high_biomass_blooms")) {
-			//What's this for ?!?
-			//BackgroundImagePredictions_high_CHL_locations backgroundImage = new BackgroundImagePredictions_high_CHL_locations();
 			
 			String imageFile = "org/marineDigitalJournal/presentation/swing/predictions_high_CHL_locations.png";
 			displayImage(imageFile);
@@ -322,7 +308,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 			
 
 		} else if (ev.getActionCommand().equals("Maps")) {
-			//displayImage("org/marineDigitalJournal/presentation/swing/predictions_CHL_next_day.png");
+		
 			displayImage("org/marineDigitalJournal/presentation/swing/current_CHL_concentrations.png");
 
 		} else if (ev.getActionCommand().equals("Collect")) {
@@ -346,28 +332,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 		frame.setVisible(true);
 
-//		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-//		DigitalMarineApplication gui = new DigitalMarineApplication();
-//
-//		try {
-//
-//			JLabel background = new JLabel(new ImageIcon(ImageIO.read(new File("marineDigitalJournal/mainImage.jpg"))));
-//
-//			background.setLayout(new BorderLayout());
-//
-//			gui.setContentPane(background);
-//
-//			gui.getContentPane().setBackground(Color.LIGHT_GRAY);
-//
-//			gui.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("marineDigitalJournal/mainImage.jpg")))));
-//
-//		} catch (IOException e) {
-//			System.out.println(e.getCause());
-//
-//		}
 
 	}
 
