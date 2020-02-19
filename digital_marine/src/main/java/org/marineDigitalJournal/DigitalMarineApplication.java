@@ -48,16 +48,16 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 	private static JFrame frame;
 
-	static private JButton predictions_high_CHL_locations_button, chl_predictions_next_day_button;
-	static private JButton database_button, register_button;
-	static private JButton funding_button, about_button;
-	static private JButton maps_button, exit_button;
+	static private JButton predictionsHighCHLocationsButton, chlPredictionsNextDayButton;
+	static private JButton databaseButton, registerButton;
+	static private JButton fundingButton, aboutButton;
+	static private JButton mapsButton, exitButton;
 
-	static private JMenuItem predictions_high_CHL_locations, chl_predictions_next_day;
+	static private JMenuItem predictionsHighCHLocations, chlPredictionsNextDay;
 	static private JMenuItem collect, database, about;
 	static private JMenuItem funding, exit;
 
-	// slider
+	
 	static JSlider b;
 
 	public DigitalMarineApplication() {
@@ -67,7 +67,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		try {
 			initComponents();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -97,7 +97,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		new Thread() {
 			public void run() {
 				
-				System.out.println("1. downlaod data --------->");
+				System.out.println("1. download data --------->");
 				new DownloadMotu().downloadSatNear_Real_TimeData();
 
 				System.out.println("2. train model  --------->");
@@ -125,53 +125,53 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		Color font_color = Color.BLUE;
 		int thick = 25;
 
-		predictions_high_CHL_locations_button = new JButton("Predictions_high_CHL_locations_high_biomass_blooms");
-		predictions_high_CHL_locations_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		predictions_high_CHL_locations_button.setForeground(font_color);
-		predictions_high_CHL_locations_button.addActionListener(this);
-		parent.add(predictions_high_CHL_locations_button);
+		predictionsHighCHLocationsButton = new JButton("PredictionsHighCHLocationsHighBiomassBlooms");
+		predictionsHighCHLocationsButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		predictionsHighCHLocationsButton.setForeground(font_color);
+		predictionsHighCHLocationsButton.addActionListener(this);
+		parent.add(predictionsHighCHLocationsButton);
 
-		chl_predictions_next_day_button = new JButton("CHL_predictions_next_day_high_biomass_blooms");
-		chl_predictions_next_day_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chl_predictions_next_day_button.setForeground(font_color);
-		chl_predictions_next_day_button.addActionListener(this);
-		parent.add(chl_predictions_next_day_button);
+		chlPredictionsNextDayButton = new JButton("CHLPredictionsNextDayHighBiomassBlooms");
+		chlPredictionsNextDayButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chlPredictionsNextDayButton.setForeground(font_color);
+		chlPredictionsNextDayButton.addActionListener(this);
+		parent.add(chlPredictionsNextDayButton);
 
-		maps_button = new JButton("Maps");
-		maps_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		maps_button.setForeground(font_color);
-		maps_button.addActionListener(this);
-		parent.add(maps_button);
+		mapsButton = new JButton("Maps");
+		mapsButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		mapsButton.setForeground(font_color);
+		mapsButton.addActionListener(this);
+		parent.add(mapsButton);
 
-		register_button = new JButton("Collect");
-		register_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		register_button.setForeground(font_color);
-		register_button.addActionListener(this);
-		parent.add(register_button);
+		registerButton = new JButton("Collect");
+		registerButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		registerButton.setForeground(font_color);
+		registerButton.addActionListener(this);
+		parent.add(registerButton);
 
-		database_button = new JButton("Database");
-		database_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		database_button.setForeground(font_color);
-		database_button.addActionListener(this);
-		parent.add(database_button);
+		databaseButton = new JButton("Database");
+		databaseButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		databaseButton.setForeground(font_color);
+		databaseButton.addActionListener(this);
+		parent.add(databaseButton);
 
-		funding_button = new JButton("Funding");
-		funding_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		funding_button.setForeground(font_color);
-		funding_button.addActionListener(this);
-		parent.add(funding_button);
+		fundingButton = new JButton("Funding");
+		fundingButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		fundingButton.setForeground(font_color);
+		fundingButton.addActionListener(this);
+		parent.add(fundingButton);
 
-		about_button = new JButton("About");
-		about_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		about_button.setForeground(font_color);
-		about_button.addActionListener(this);
-		parent.add(about_button);
+		aboutButton = new JButton("About");
+		aboutButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		aboutButton.setForeground(font_color);
+		aboutButton.addActionListener(this);
+		parent.add(aboutButton);
 
-		exit_button = new JButton("Exit");
-		exit_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		exit_button.setForeground(font_color);
-		exit_button.addActionListener(this);
-		parent.add(exit_button);
+		exitButton = new JButton("Exit");
+		exitButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		exitButton.setForeground(font_color);
+		exitButton.addActionListener(this);
+		parent.add(exitButton);
 
 		return parent;
 	}
