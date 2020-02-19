@@ -1,5 +1,11 @@
 package org.marineDigitalJournal.neuralnet;
 
+/**
+ * 
+ * Trigger CMEMS satellite download process 
+ *
+ */
+
 public class DownloadMotu extends PythonScript {
 
 	public static void main(String[] args) {

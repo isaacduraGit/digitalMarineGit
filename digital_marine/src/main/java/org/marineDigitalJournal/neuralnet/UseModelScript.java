@@ -2,6 +2,12 @@ package org.marineDigitalJournal.neuralnet;
 
 import org.marineDigitalJournal.Application;
 
+/**
+ * 
+ * This class effectively calls the useModel script.
+ *
+ */
+
 public class UseModelScript extends PythonScript {
 
 	public static void main(String[] args) {
