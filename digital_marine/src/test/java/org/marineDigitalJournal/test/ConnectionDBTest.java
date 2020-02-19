@@ -11,6 +11,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.marineDigitalJournal.login.persistence.jdbc.JdbcLoginRepository.ConnectionDB;
 
+/**
+ * Class to implement furhter testing to the remote DB
+ */
 
 public class ConnectionDBTest {
 
