@@ -45,9 +45,6 @@ public    class ImageRenderer extends DefaultTableCellRenderer {
 		 label.setMaximumSize(new Dimension(width, height));
 
 		 return label;
-		 
-		 
-		 
 	 
 	 }
 	 //If we're not dealing with column 7
