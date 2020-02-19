@@ -296,7 +296,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 		} else if (ev.getActionCommand().equals("Database")) {
 
-			Login l = new Login();
+			Login login = new Login();
 
 		} else if (ev.getActionCommand().equals("Predictions_high_CHL_locations_high_biomass_blooms")) {
 			
