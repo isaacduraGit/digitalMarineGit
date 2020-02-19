@@ -5,12 +5,12 @@ public class TrainModel extends PythonScript {
 	public static void main(String[] args) {
 
 		TrainModel display = new TrainModel();
-		display.train_model();
+		display.trainModel();
 
 	}
 
-	public void train_model() {
-		execute("/org/marineDigitalJournal/neuralnet/train_model.py");
+	public void trainModel() {
+		execute("/org/marineDigitalJournal/neuralnet/trainModel.py");
 	}
 
 }
