@@ -14,7 +14,7 @@ public class UseModelScript extends PythonScript {
 
 	public void display() {
 
-		execute("/org/marineDigitalJournal/neuralnet/use_model.py");
+		execute("/org/marineDigitalJournal/neuralnet/useModel.py");
 	}
 
 }
