@@ -125,13 +125,13 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		Color font_color = Color.BLUE;
 		int thick = 25;
 
-		predictionsHighCHLocationsButton = new JButton("PredictionsHighCHLocationsHighBiomassBlooms");
+		predictionsHighCHLocationsButton = new JButton("Predictions_high_CHL_locations_high_biomass_blooms");
 		predictionsHighCHLocationsButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		predictionsHighCHLocationsButton.setForeground(font_color);
 		predictionsHighCHLocationsButton.addActionListener(this);
 		parent.add(predictionsHighCHLocationsButton);
 
-		chlPredictionsNextDayButton = new JButton("CHLPredictionsNextDayHighBiomassBlooms");
+		chlPredictionsNextDayButton = new JButton("CHL_predictions_next_day_high_biomass_blooms");
 		chlPredictionsNextDayButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		chlPredictionsNextDayButton.setForeground(font_color);
 		chlPredictionsNextDayButton.addActionListener(this);
