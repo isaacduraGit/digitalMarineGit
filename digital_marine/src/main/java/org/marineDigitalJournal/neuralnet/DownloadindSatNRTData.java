@@ -1,5 +1,10 @@
 package org.marineDigitalJournal.neuralnet;
-//Trigger CMEMS satellite download process 
+
+/**
+ * 
+ * Trigger CMEMS satellite download process 
+ *
+ */
 public class DownloadindSatNRTData extends Thread{
 	
 	public void launch() {
