@@ -1,5 +1,11 @@
 package org.marineDigitalJournal.neuralnet;
-//Activates the generation of a dynamic map based on near-real time EO data
+
+/**
+ * 
+ * This class launches the plotting of the EO satellite retrieved data.
+ *
+ */
+
 public class DisplayProductThread extends Thread {
 
 	public void launch() {
