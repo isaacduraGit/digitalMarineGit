@@ -12,8 +12,6 @@ todayDT = datetime.datetime.now()
 previousDT = (todayDT-(datetime.timedelta(days=4))).strftime("%Y-%m-%d 00:00:00")
 posteriorDT=(todayDT-(datetime.timedelta(days=3))).strftime("%Y-%m-%d 00:00:00")
 
-print("mierda")
-
 import os
 curDir = os.path.dirname(os.path.realpath(__file__))
 
