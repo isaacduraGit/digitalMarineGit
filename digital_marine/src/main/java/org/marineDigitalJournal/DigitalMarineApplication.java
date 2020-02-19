@@ -44,7 +44,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
-	public static String limit_CHL = "";
+	public static String limitCHL = "";
 
 	private static JFrame frame;
 
@@ -300,15 +300,20 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 		} else if (ev.getActionCommand().equals("Predictions_high_CHL_locations_high_biomass_blooms")) {
 			
+			//Dynamically generated image 
 			String imageFile = "org/marineDigitalJournal/presentation/swing/predictions_high_CHL_locations.png";
 			displayImage(imageFile);
 
+			
 		} else if (ev.getActionCommand().equals("CHL_predictions_next_day_high_biomass_blooms")) {
+			
+			//Dynamically generated image
 			displayImage("org/marineDigitalJournal/presentation/swing/predictions_CHL_next_day.png");
 			
 
 		} else if (ev.getActionCommand().equals("Maps")) {
 		
+			//Dynamically generated image
 			displayImage("org/marineDigitalJournal/presentation/swing/current_CHL_concentrations.png");
 
 		} else if (ev.getActionCommand().equals("Collect")) {
