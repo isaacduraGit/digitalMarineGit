@@ -8,7 +8,9 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import javax.imageio.ImageIO;
 import javax.mail.MessagingException;
@@ -103,17 +105,27 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		new Thread() {
 			public void run() {
 				
-				System.out.println("1. download data --------->");
-				new DownloadMotu().downloadSatNearRealTimeData();
-
-				System.out.println("2. train model  --------->");
-				new TrainModel().trainModel();
+				PrintStream outStream;
+				try {
+					outStream = new PrintStream(new File("outFile.txt"));
+					System.setOut(outStream);
+					System.out.println("1. download data --------->");
 				
-				System.out.println("3. display product --------->");
-				new DisplayProduct().display();
-				
-				System.out.println("4. use_model.py ---->");
-				new UseModelScript().display();
+					new DownloadMotu().downloadSatNearRealTimeData();
+	
+					System.out.println("2. train model  --------->");
+					new TrainModel().trainModel();
+					
+					System.out.println("3. display product --------->");
+					new DisplayProduct().display();
+					
+					System.out.println("4. use_model.py ---->");
+					new UseModelScript().display();
+					
+					} catch (FileNotFoundException e) {
+						
+						e.printStackTrace();
+					}
 			};
 		}.start();
 			
