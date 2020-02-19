@@ -11,6 +11,12 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
+/**
+ * 
+ * Render the images retrieved from the DB
+ *
+ */
+
 public    class ImageRenderer extends DefaultTableCellRenderer {
 
 	 @Override
