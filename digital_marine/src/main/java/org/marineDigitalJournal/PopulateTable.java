@@ -21,6 +21,12 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+/**
+ * 
+ * Manage the Resultset/Table relationship
+ * 
+ *  */
+
 public class PopulateTable {
 
     private static final Logger LOG = Logger.getLogger(PopulateTable.class.getName());
