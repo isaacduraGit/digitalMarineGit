@@ -23,6 +23,11 @@ import org.jasypt.util.text.BasicTextEncryptor;
 
 import javax.activation.DataSource;
 
+/**
+ *  Using a AWS host and encripted credentials the SendEmail Class is able to send
+ *  an email to gmail accounts.  
+ *
+ */
 public class SendEmail {
 	final String username = "bluedigitalmaritimejournal@gmail.com";
 	final String EMAIL_PASS = "iTHRIr52EFWlx5HvRX3FvvZCm2Gy8RkJ";
