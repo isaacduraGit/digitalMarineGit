@@ -1,5 +1,11 @@
 package org.marineDigitalJournal.neuralnet;
 
+/**
+ * 
+ * This class launches the plotting of the satellite retrieved data.
+ *
+ */
+
 public class DisplayDataThread extends Thread{
 	
 	
