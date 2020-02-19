@@ -44,7 +44,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
-	public static String limit_CHL = "test";
+	public static String limit_CHL = "";
 
 	private static JFrame frame;
 
