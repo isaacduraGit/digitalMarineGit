@@ -48,7 +48,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 	private static JFrame frame;
 
-	static private JButton predictions_high_CHL_locations_button, chl_predictions_next_day_button;
+	static private JButton predictionsHighCHLocationsButton, chl_predictions_next_day_button;
 	static private JButton database_button, register_button;
 	static private JButton funding_button, about_button;
 	static private JButton maps_button, exit_button;
@@ -125,11 +125,11 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		Color font_color = Color.BLUE;
 		int thick = 25;
 
-		predictions_high_CHL_locations_button = new JButton("Predictions_high_CHL_locations_high_biomass_blooms");
-		predictions_high_CHL_locations_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		predictions_high_CHL_locations_button.setForeground(font_color);
-		predictions_high_CHL_locations_button.addActionListener(this);
-		parent.add(predictions_high_CHL_locations_button);
+		predictionsHighCHLocationsButton = new JButton("Predictions_high_CHL_locations_high_biomass_blooms");
+		predictionsHighCHLocationsButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		predictionsHighCHLocationsButton.setForeground(font_color);
+		predictionsHighCHLocationsButton.addActionListener(this);
+		parent.add(predictionsHighCHLocationsButton);
 
 		chl_predictions_next_day_button = new JButton("CHL_predictions_next_day_high_biomass_blooms");
 		chl_predictions_next_day_button.setFont(new Font("Tahoma", Font.PLAIN, 15));
