@@ -192,9 +192,9 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 		funding = new JMenuItem("Funding");
 		exit = new JMenuItem("Exit");
 
-		menu.add(predictions_high_CHL_locations).addActionListener(this);
+		menu.add(predictionsHighCHLocations).addActionListener(this);
 
-		menu.add(chl_predictions_next_day).addActionListener(this);
+		menu.add(chlPredictionsNextDay).addActionListener(this);
 
 		menu.add("Maps").addActionListener(this);
 
