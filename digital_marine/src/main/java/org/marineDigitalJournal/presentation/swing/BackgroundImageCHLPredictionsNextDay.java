@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
 public class BackgroundImageCHLPredictionsNextDay extends javax.swing.JPanel {
-	ImageIcon backgroundImageCHL_predictions_next_day;
+	ImageIcon backgroundImageCHLPredictionsNextDay;
 	Dimension size;
 
 	public BackgroundImageCHLPredictionsNextDay() {
@@ -17,7 +17,7 @@ public class BackgroundImageCHLPredictionsNextDay extends javax.swing.JPanel {
 
 		size = getSize();
 
-		backgroundImageCHL_predictions_next_day = new ImageIcon(
+		backgroundImageCHLPredictionsNextDay = new ImageIcon(
 
 				this.getClass().getResource("CHL_predictions_next_day.png"));
 
@@ -28,7 +28,7 @@ public class BackgroundImageCHLPredictionsNextDay extends javax.swing.JPanel {
 
 		super.paintComponent(g);
 
-		g.drawImage(backgroundImageCHL_predictions_next_day.getImage(), 0, 0, size.width, size.height, null);
+		g.drawImage(backgroundImageCHLPredictionsNextDay.getImage(), 0, 0, size.width, size.height, null);
 
 		setOpaque(false);
 
