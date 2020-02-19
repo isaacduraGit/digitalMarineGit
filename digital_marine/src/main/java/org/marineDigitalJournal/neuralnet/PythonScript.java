@@ -34,32 +34,10 @@ public abstract class PythonScript {
 	
 				while ((line = br.readLine())  != null) {
 	
-	//				if (line.contains("forecastVAlue")) {
-	//
-	//					DigitalMarineApplication.limit_CHL= "-1";//line.substring(13, 15);
-	//
-	//				}
 	
 					System.out.println(line);
 				}
-	
-				// retrieveEmail.retrieveEmail();
-	
-	//			SendEmail sendEmail = new SendEmail();
-	//			
-	//			ArrayList email=retrieveEmail.retrieveEmail();
-	//			
-	//			for(int i=0;i<email.size();i++) {
-	//				
-	//				
-	//				if(((String) email.get(i)).contains("@")) {
-	//			
-	//			if (DigitalMarineApplication.limit_CHL == "-1") {
-	//
-	//				sendEmail.send(email.get(i).toString());
-	//			}}
-	//
-	//			}
+		
 				
 				if (p != null && p.exitValue() == 0) {
 					System.out.println("script " + scriptPath + " exited with success.");

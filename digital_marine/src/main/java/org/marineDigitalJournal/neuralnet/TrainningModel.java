@@ -6,7 +6,7 @@ public class TrainningModel extends Thread {
 		new Thread() {
 			public void run() {
 				TrainModel trainModel = new TrainModel();
-				trainModel.train_model();
+				trainModel.trainModel();
 
 			}
 		}.start();

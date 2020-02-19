@@ -7,7 +7,7 @@ public class DownloadindSatNRTData extends Thread{
 	    public void run() {
 	    	DownloadMotu downloadMotu = new DownloadMotu();
 
-			 downloadMotu.downloadSatNear_Real_TimeData();
+			 downloadMotu.downloadSatNearRealTimeData();
 	    }
 	}.start();
 	}
