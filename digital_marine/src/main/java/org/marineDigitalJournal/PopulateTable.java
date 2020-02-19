@@ -134,7 +134,6 @@ public class PopulateTable {
             //was a buffered image -- then create a renderer using
             //a JLabel and paint the image onto the label
             //using an ImageIcon wrapper
-            //if (column == 7 && value instanceof BufferedImage) {
         	
         	if(column == 6 && value != null && value instanceof BufferedImage) {
                 BufferedImage image = (BufferedImage) value;
@@ -161,7 +160,6 @@ public class PopulateTable {
     	int columnCount = metaData.getColumnCount();
     	//Create array of Objects with size of column count from meta data
     	Object[] rows = new Object[columnCount];
-    	//Object[][] rows1 = new Object[columnCount][rs.getFetchSize()];
     	
     	
     	//Scroll through result set
@@ -178,11 +176,9 @@ public class PopulateTable {
     	//using try-with-resources so that the stream
     	//gets closed automatically
     	try (InputStream inputStream = rs.getBinaryStream(columnIndex)) {
-    	//rows[i] = ImageIO.read(inputStream);
     		
     		rows[i] = inputStream != null ? ImageIO.read(inputStream): null;
     	
-    		//rows1[i][0]=rows;
     	
     	} catch (IOException ex) {
     	Logger.getLogger(PopulateTable.class.getName()).log(Level.SEVERE, null, ex);
@@ -207,8 +203,6 @@ public class PopulateTable {
     	int columnCount = metaData.getColumnCount();
     	//Create array of Objects with size of column count from meta data
     	Object[] rows = new Object[columnCount];
-    	//Object[][] rows1 = new Object[columnCount][rs.getFetchSize()];
-    	
     	
     	//Scroll through result set
     	while (rs.next()) {
