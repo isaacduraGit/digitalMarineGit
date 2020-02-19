@@ -21,6 +21,9 @@ import org.marineDigitalJournal.ImageRenderer;
 import org.marineDigitalJournal.PopulateTable;
 import org.marineDigitalJournal.login.persistence.jdbc.JdbcLoginRepository.ConnectionDB;
 
+/**
+ * Class to manipulate data from DB and populate Swing table
+ */
 public class Database extends JFrame implements TableModelListener  {
 	
 	public Database() {

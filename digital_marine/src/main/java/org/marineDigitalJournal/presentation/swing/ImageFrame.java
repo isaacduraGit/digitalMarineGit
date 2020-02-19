@@ -23,6 +23,9 @@ import org.marineDigitalJournal.Application;
 
 import com.google.common.io.Files;
 
+/**
+ * Class to download newly generated map images.
+ */
 public class ImageFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;

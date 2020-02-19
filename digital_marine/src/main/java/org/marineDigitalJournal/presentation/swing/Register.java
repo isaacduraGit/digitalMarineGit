@@ -6,6 +6,9 @@ import java.awt.*;
 import java.awt.event.*; 
 import java.io.File;
   
+/**
+ * Class to populate Swing frame for registration.
+ */
 public class Register 
     extends JFrame 
     implements ActionListener { 

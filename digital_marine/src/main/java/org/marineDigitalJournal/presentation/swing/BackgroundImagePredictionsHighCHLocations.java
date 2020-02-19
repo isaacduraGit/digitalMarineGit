@@ -6,7 +6,9 @@ import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 
-
+/**
+ * Class to manipulate newly generated images
+ */
 public class BackgroundImagePredictionsHighCHLocations extends javax.swing.JPanel {
 	ImageIcon backgroundImagePredictionsHighCHLocations;
 	Dimension size;

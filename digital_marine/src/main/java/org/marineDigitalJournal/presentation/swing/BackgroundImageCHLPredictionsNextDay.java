@@ -5,6 +5,10 @@ import java.awt.Graphics;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
+
+/**
+ * Class to manipulate newly generated images
+ */
 public class BackgroundImageCHLPredictionsNextDay extends javax.swing.JPanel {
 	ImageIcon backgroundImageCHLPredictionsNextDay;
 	Dimension size;

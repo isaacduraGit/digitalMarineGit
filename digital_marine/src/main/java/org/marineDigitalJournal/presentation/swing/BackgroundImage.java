@@ -9,6 +9,10 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+
+/**
+ * Creates a new form BackgroundImage
+ */
 public class BackgroundImage extends javax.swing.JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -16,7 +20,6 @@ public class BackgroundImage extends javax.swing.JPanel {
 	private BufferedImage eulogo;
 	
 
-	// Creates a new form BackgroundImage
 	public BackgroundImage() {
 		
 		super(new BorderLayout());

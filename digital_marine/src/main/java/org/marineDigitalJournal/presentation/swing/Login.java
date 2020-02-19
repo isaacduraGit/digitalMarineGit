@@ -13,6 +13,9 @@ import javax.xml.bind.DatatypeConverter;
 
 import org.marineDigitalJournal.login.persistence.jdbc.JdbcLoginRepository.ConnectionDB;
 
+/**
+ * Class to manipulate credentials to access database.
+ */
 public class Login extends JFrame implements ActionListener{
 
 	JButton blogin = new JButton("Login");

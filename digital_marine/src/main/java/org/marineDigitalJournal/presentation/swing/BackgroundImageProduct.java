@@ -6,6 +6,10 @@ import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 
+
+/**
+ * Class to manipulate newly generated images
+ */
 public class BackgroundImageProduct extends javax.swing.JPanel {
 
 	// Creates a new form BackgroundImage

@@ -34,7 +34,7 @@ import org.marineDigitalJournal.neuralnet.UseModelScript;
 import org.marineDigitalJournal.presentation.swing.BackgroundImage;
 import org.marineDigitalJournal.presentation.swing.BackgroundImageCHLPredictionsNextDay;
 import org.marineDigitalJournal.presentation.swing.BackgroundImagePredictionsHighCHLocations;
-import org.marineDigitalJournal.presentation.swing.BackgroundImage_Product;
+import org.marineDigitalJournal.presentation.swing.BackgroundImageProduct;
 import org.marineDigitalJournal.presentation.swing.ImageFrame;
 import org.marineDigitalJournal.presentation.swing.Login;
 import org.marineDigitalJournal.presentation.swing.NextPage;
@@ -88,6 +88,12 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 	}
 
+	/**
+	 * 
+	 * Threads are launched placing a trace for every different Python process 
+	 * 
+	 */
+	
 	private void initComponents() throws IOException {
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,10 +104,10 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 			public void run() {
 				
 				System.out.println("1. download data --------->");
-				new DownloadMotu().downloadSatNear_Real_TimeData();
+				new DownloadMotu().downloadSatNearRealTimeData();
 
 				System.out.println("2. train model  --------->");
-				new TrainModel().train_model();
+				new TrainModel().trainModel();
 				
 				System.out.println("3. display product --------->");
 				new DisplayProduct().display();
@@ -115,7 +121,10 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 	private JPanel addButtons() {
 
-		/* Add buttons */
+		/**
+		 * Buttons are added to the UI in two ways 1) by using a menu tab and 2) by placing buttons directly in the main page 
+		 * 
+		 * */
 
 		JPanel parent = new JPanel(new VerticalLayout());
 		parent.setBounds(frame.getWidth() / 4, 400, frame.getWidth() / 2, frame.getHeight() / 2);
@@ -216,9 +225,12 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 
 	}
 
-	// method actionPerformed()
-	// to get the action performed
-	// by the user and act accordingly
+	
+	/**
+	 * method actionPerformed()
+	   to get the action performed
+	   by the user and act accordingly
+	 */
 	public void actionPerformed(ActionEvent ev) {
 		
 		if (ev.getActionCommand().equals("Exit")) {
@@ -259,7 +271,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 			page.setTitle("About");
 			JLabel jLabel = new JLabel();
 
-			String test = "<HTML><BODY style='marging-left:100 marging-right:100; padding:100'><font size= 4 color=black>Marine earth observation satellites continuously observe the dynamics of the marine ecosystems variables \n"
+			String text = "<HTML><BODY style='marging-left:100 marging-right:100; padding:100'><font size= 4 color=black>Marine earth observation satellites continuously observe the dynamics of the marine ecosystems variables \n"
 					+ "like surface temperature, salinity, anomalies in the surface of the ocean, Chlorophyll-a or plankton concentration. This data is delivered to users \n"
 					+ "providing a source of valuable information to environmental experts, scientists and citizens.\n"
 					+ "CMEMS and Copernicus Satellite data on maritime change are freely available on global level and are integrated in the open data initiative of the \n"
@@ -280,7 +292,7 @@ public class DigitalMarineApplication extends JFrame implements ActionListener {
 					+ "The alpha version of the application was designed and developed by Isaac Dura founder of the award-winning European Space Agency Business Incubator Center Darmstadt startup HeraSpace. \n"
 					+ "The satellite data provided by the Copernicus Marine Environmental monitoring system (CMEMS) containing merged sources from ESA and NASA.</font></BODY></HTML>";
 
-			jLabel.setText(test);
+			jLabel.setText(text);
 
 			page.setBounds(300, 200, 800, 500);
 
