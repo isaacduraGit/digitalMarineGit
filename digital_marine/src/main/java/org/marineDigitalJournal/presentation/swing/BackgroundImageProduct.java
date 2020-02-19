@@ -6,10 +6,10 @@ import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 
-public class BackgroundImage_Product extends javax.swing.JPanel {
+public class BackgroundImageProduct extends javax.swing.JPanel {
 
 	// Creates a new form BackgroundImage
-	public BackgroundImage_Product() {
+	public BackgroundImageProduct() {
 		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
