@@ -4,7 +4,11 @@ import java.io.File;
 
 import javax.swing.table.AbstractTableModel;
 
-//Customize class to customize the DB table.
+/**
+ * 
+ * Customize class to customize the DB table.
+ *
+ */
 public class TableModel extends AbstractTableModel {
 
 	String[] columnNames = { "user_id", "user_name", "user_surname", "user_email", "user_phone", "user_comments",
