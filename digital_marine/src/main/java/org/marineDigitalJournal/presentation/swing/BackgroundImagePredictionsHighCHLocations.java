@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 
 
 public class BackgroundImagePredictionsHighCHLocations extends javax.swing.JPanel {
-	ImageIcon BackgroundImagePredictions_high_CHL_locations;
+	ImageIcon backgroundImagePredictionsHighCHLocations;
 	Dimension size;
 
 	public BackgroundImagePredictionsHighCHLocations() {
@@ -19,7 +19,7 @@ public class BackgroundImagePredictionsHighCHLocations extends javax.swing.JPane
 
 		size = getSize();
 
-		BackgroundImagePredictions_high_CHL_locations = new ImageIcon(this.getClass().getResource("predictions_high_CHL_locations.png"));
+		backgroundImagePredictionsHighCHLocations = new ImageIcon(this.getClass().getResource("predictions_high_CHL_locations.png"));
 
 	}
 
@@ -28,7 +28,7 @@ public class BackgroundImagePredictionsHighCHLocations extends javax.swing.JPane
 
 		super.paintComponent(g);
 
-		g.drawImage(BackgroundImagePredictions_high_CHL_locations.getImage(), 0, 0, size.width, size.height, null);
+		g.drawImage(backgroundImagePredictionsHighCHLocations.getImage(), 0, 0, size.width, size.height, null);
 
 		setOpaque(false);
 
