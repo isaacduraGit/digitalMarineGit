@@ -1,6 +1,6 @@
 package org.marineDigitalJournal.neuralnet;
 //Activates the generation of a dynamic map based on near-real time EO data
-public class Display_Product_Thread extends Thread {
+public class DisplayProductThread extends Thread {
 
 	public void launch() {
 		new Thread() {
