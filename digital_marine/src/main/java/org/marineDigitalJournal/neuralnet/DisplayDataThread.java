@@ -1,6 +1,6 @@
 package org.marineDigitalJournal.neuralnet;
 
-public class DisplayData_Thread extends Thread{
+public class DisplayDataThread extends Thread{
 	
 	
 	public void launch() {
