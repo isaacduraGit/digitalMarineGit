@@ -11,6 +11,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import org.jasypt.util.text.BasicTextEncryptor;
 
+/**
+ * 
+ * ConnectionDB Class uses encripted credentials to access the remote database.
+ *
+ */
+
 public class ConnectionDB {
 
 	static String prop;
