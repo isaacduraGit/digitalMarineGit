@@ -5,11 +5,11 @@ import java.awt.Graphics;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
-public class BackgroundImageCHL_predictions_next_day extends javax.swing.JPanel {
+public class BackgroundImageCHLPredictionsNextDay extends javax.swing.JPanel {
 	ImageIcon backgroundImageCHL_predictions_next_day;
 	Dimension size;
 
-	public BackgroundImageCHL_predictions_next_day() {
+	public BackgroundImageCHLPredictionsNextDay() {
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 

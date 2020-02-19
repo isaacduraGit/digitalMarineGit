@@ -7,11 +7,11 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
 
-public class BackgroundImagePredictions_high_CHL_locations extends javax.swing.JPanel {
+public class BackgroundImagePredictionsHighCHLocations extends javax.swing.JPanel {
 	ImageIcon BackgroundImagePredictions_high_CHL_locations;
 	Dimension size;
 
-	public BackgroundImagePredictions_high_CHL_locations() {
+	public BackgroundImagePredictionsHighCHLocations() {
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
