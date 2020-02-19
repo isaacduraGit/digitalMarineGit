@@ -14,7 +14,7 @@ public class DisplayProduct extends PythonScript {
 
 	public void display() {
 
-		execute("/org/marineDigitalJournal/neuralnet/plot_product.py");
+		execute("/org/marineDigitalJournal/neuralnet/plotProduct.py");
 	}
 
 }
