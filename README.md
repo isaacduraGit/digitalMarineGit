@@ -1,12 +1,19 @@
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
 
+## General info
 Java 8 Swing application, machine learning predicting Python scripts and model to leverage the benefits of Copernicus satellite data. It supports the early identification of environmental hazards like the occurrence of harmful algal blooms in the North Atlantic ocean. App developed under the EOValue project of the Joint Research Center of the European Commission.
 
-# Software needed to run the application;
+## Technologies
 
 java version "1.8.0_121"
 Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
 Python 3.6.9 :: Anaconda, Inc. (MotuClient 1.8.4)
+
+## Setup
 
 The database used is MySql. It does not need to be installed any longer because it is hosted
 already in a remote AWS instance server, the local app connects automatically.
