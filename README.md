@@ -15,43 +15,33 @@ Python 3.6.9 :: Anaconda, Inc. (MotuClient 1.8.4)
 
 ## Setup
 
-The database used is MySql. It does not need to be installed any longer because it is hosted
+The database used is MySql. It does not need to be installed because it is hosted
 already in a remote AWS instance server, the local app connects automatically.
 
-In order to run it, please extract the content of the .zip file;
-digital_marine-1.0.0-application.zip
-in a location of your choice.
+In order to run it, please clone it to your development environment and export it as an executable file (Jar prefered).
 
 Then, please follow the next steps;
 ### Option A (All Operating systems with Java installed)
 
-1) Open the explorer navigating to the folder where the file;
-digital_marine-1.0.0-application
-is located.
+1) Open the explorer navigating to the folder where the exported file is located;
 
-2) Extract the content, navigate to the folder digital_marine-1.0.0-application
-and click twice in the file digital_marine-1.0.0-application.jar”
+2) Click twice in the executable file.
 
 ### Option B (All Operating systems)
 
-1) Open the terminal navigating to the folder where the file;
-digital_marine-1.0.0-application
-is located.
+1) Open the explorer navigating to the folder where the exported file is located;
 
-2) Extract the content, navigate to the folder digital_marine-1.0.0-application
-and type the command “java -jar digital_marine-1.0.0-application.jar”
+2) Navigate to the folder where it is located and type the command “java -jar filename.jar”
 
 ### Option C (Only for Linux or Mac)
 
-1) Open the explorer navigating to the folder where the file;
-digital_marine-1.0.0-application
-is located.
+1) Open the explorer navigating to the folder where the exported file is located;
 
-2) Click twice in the file start.sh.
+2) Click twice in a .sh file like start.sh (example).
 
 ##### The application has been tested in the next environment;
 
-MAcOs High Sierra version 10.13.6
+MacOs High Sierra version 10.13.6
 
 ##### Model explanation Jupyter.
 
