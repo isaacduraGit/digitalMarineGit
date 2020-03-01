@@ -19,11 +19,14 @@ import org.jasypt.util.text.BasicTextEncryptor;
 
 public class ConnectionDB {
 
+	//Access to the database content should be granted by the admin.
+	//Please contact "isaacdura@gmail.com" requesting for DB_SERVER and DB_PASS
+	
 	static String prop;
-	static final String DB_SERVER = "ec2-18-217-120-134.us-east-2.compute.amazonaws.com";
+	static final String DB_SERVER = "";
 	static final int DB_PORT = 3306;
 	static final String DB_USER = "admin_db";
-	static final String DB_PASS = "AbMEXzM75u3qGfnNBthzfcyxmBhmYL4U";
+	static final String DB_PASS = "A";
 
 	public boolean authenticate(String user, String pwd) {
 		try {
