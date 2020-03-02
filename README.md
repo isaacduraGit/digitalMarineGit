@@ -16,7 +16,7 @@ Python 3.6.9 :: Anaconda, Inc. (MotuClient 1.8.4)
 ## Setup
 
 The database used is MySql. It does not need to be installed because it is hosted
-already in a remote AWS instance server, the local app connects automatically.
+already in a remote AWS instance server, the local app connects automatically (encripted credentials must to be requested to admin (isaacdura@gmail.com)).
 
 In order to run it, please clone it to your development environment and export it as an executable file (Jar prefered).
 
